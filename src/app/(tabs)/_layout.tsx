@@ -21,23 +21,25 @@ export default function TabLayout() {
         component={HomeScreen}
         options={{
           title: "Home",
-          tabBarIcon: ({ color, focused }) => <HouseIcon color={color} />,
+          tabBarIcon: ({ color, focused }: any) => <HouseIcon color={color} />,
         }}
       />
-      <Tabs.Screen
-        name="search"
+      {/* <Tabs.Screen
+        name="Search"
         component={Search}
         options={{
           title: "search",
-          tabBarIcon: ({ color, focused }) => <Search color={color} />,
+          tabBarIcon: ({ color, focused }: any) => <Search color={color} />,
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="explore"
         component={TabTwoScreen}
         options={{
           title: "Settings",
-          tabBarIcon: ({ color, focused }) => <Settings2Icon color={color} />,
+          tabBarIcon: ({ color, focused }: any) => (
+            <Settings2Icon color={color} />
+          ),
         }}
       />
     </Tabs.Navigator>
