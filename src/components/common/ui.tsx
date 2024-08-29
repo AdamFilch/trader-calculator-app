@@ -8,12 +8,12 @@ interface DividerProps {
   dividerStyle?: any;
 }
 
-const Divider: React.FC<DividerProps> = ({
+export default function Divider({
   width = 1,
   orientation = "horizontal",
   color = "#DFE4EA",
   dividerStyle,
-}) => {
+}: DividerProps) {
   const dividerStyles = [
     { width: orientation === "horizontal" ? "100%" : width },
     { height: orientation === "vertical" ? "100%" : width },
@@ -22,6 +22,4 @@ const Divider: React.FC<DividerProps> = ({
   ];
 
   return <View style={dividerStyles} />;
-};
-
-export default Divider;
+}
