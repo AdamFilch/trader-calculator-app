@@ -18,3 +18,7 @@ web-build/
 
 expo-env.d.ts
 # @end expo-cli
+
+
+/%ProgramData%/
+# Presumably react native bug im not too sure?
