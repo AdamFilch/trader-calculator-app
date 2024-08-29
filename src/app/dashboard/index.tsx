@@ -1,8 +1,11 @@
-import ParallaxScrollView from "@/src/components/ParallaxScrollView";
-import { ThemedView } from "@/src/components/ThemedView";
-import ToolsButton from "./tools";
-import { ScrollView, Text, View } from "react-native";
-import { FileX } from "lucide-react-native";
+import { ScrollView, View } from "react-native";
+import DashFunctionBtns from "@/src/components/dashboard/buttons";
+import {
+  Bolt,
+  ChartNoAxesColumnIncreasing,
+  HandCoins,
+  Percent,
+} from "lucide-react-native";
 
 export default function DashboardPage() {
   return (
@@ -10,13 +13,23 @@ export default function DashboardPage() {
       style={{
         display: "flex",
         flexDirection: "column",
-        paddingHorizontal: 30,
       }}
     >
       <View>
-        <View style={{ height: 100 }}></View>
-
-        <View>
+        <View style={{ height: 30 }}></View>
+        <DashFunctionBtns label={"Averageing"}>
+          <Percent color={"black"} scale={0.8} />
+        </DashFunctionBtns>
+        <DashFunctionBtns label={"Profit/Loss"}>
+          <HandCoins color={"black"} scale={0.8} />
+        </DashFunctionBtns>
+        <DashFunctionBtns label={"Fixed Income Return"}>
+          <Bolt color={"black"} scale={0.8} />
+        </DashFunctionBtns>
+        <DashFunctionBtns label={"Compounding Returns"}>
+          <ChartNoAxesColumnIncreasing color={"black"} scale={0.8} />
+        </DashFunctionBtns>
+        {/* <View>
           <Text>Average</Text>
         </View>
         <View>
@@ -30,7 +43,7 @@ export default function DashboardPage() {
         </View>
         <View>
           <Text>Profit Calculator</Text>
-        </View>
+        </View> */}
       </View>
     </ScrollView>
   );
