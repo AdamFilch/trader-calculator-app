@@ -2,7 +2,6 @@ import React from "react";
 
 import { AnimatedTabBarNavigator } from "react-native-animated-nav-tab-bar";
 import { HouseIcon, Search, Settings2Icon } from "lucide-react-native";
-import HomeScreen from ".";
 import TabTwoScreen from "./explore";
 import DashboardPage from "../dashboard";
 
