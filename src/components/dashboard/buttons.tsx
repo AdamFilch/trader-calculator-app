@@ -1,10 +1,11 @@
-import { ChevronRight, Divide, Icon, icons } from "lucide-react-native";
 import { Button, Pressable, Text, View } from "react-native";
-import Divider from "../common/ui";
+import { Divider } from "../common/ui";
+import { Inter_500Medium } from "@expo-google-fonts/inter";
+import { Typography } from "../common/Typography";
 
 type DashFuncProps = {
   label: string;
-  children: any;
+  children?: any;
 };
 
 export default function DashFunctionBtns({ label, children }: DashFuncProps) {
@@ -30,11 +31,11 @@ export default function DashFunctionBtns({ label, children }: DashFuncProps) {
           gap: 20,
         }}
       >
-        <View>{children}</View>
-        <Text style={{ flexGrow: 1 }}>{label}</Text>
-        <View>
-          <ChevronRight color={"black"} />
+        <View style={{ display: "flex", justifyContent: "center" }}>
+          {children}
         </View>
+        <Typography style={{ flexGrow: 1 }}>{label}</Typography>
+        <View></View>
       </View>
     </Pressable>
   );
