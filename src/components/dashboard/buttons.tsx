@@ -1,5 +1,5 @@
 import { Button, Pressable, Text, View } from "react-native";
-import { Divider } from "../common/ui";
+import { Divider } from "../common/CustomUI";
 import { Inter_500Medium } from "@expo-google-fonts/inter";
 import { Typography } from "../common/Typography";
 
