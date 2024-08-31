@@ -2,7 +2,6 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { StyleSheet, Image, Platform } from "react-native";
 
 import { Collapsible } from "@/src/components/expo-native/Collapsible";
-import { ExternalLink } from "@/src/components/expo-native/ExternalLink";
 import ParallaxScrollView from "@/src/components/expo-native/ParallaxScrollView";
 import { ThemedText } from "@/src/components/expo-native/ThemedText";
 import { ThemedView } from "@/src/components/expo-native/ThemedView";
@@ -33,9 +32,9 @@ export default function TabTwoScreen() {
           <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{" "}
           sets up the tab navigator.
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
+        {/* <Text href="https://docs.expo.dev/router/introduction">
           <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+        </Text> */}
       </Collapsible>
       <Collapsible title="Android, iOS, and web support">
         <ThemedText>
@@ -55,21 +54,19 @@ export default function TabTwoScreen() {
           source={require("@/assets/images/react-logo.png")}
           style={{ alignSelf: "center" }}
         />
-        <ExternalLink href="https://reactnative.dev/docs/images">
+        {/* <Text href="https://reactnative.dev/docs/images">
           <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+        </Text> */}
       </Collapsible>
       <Collapsible title="Custom fonts">
         <ThemedText>
           Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText>{" "}
           to see how to load{" "}
-          <ThemedText style={{ fontFamily: "SpaceMono" }}>
-            custom fonts such as this one.
-          </ThemedText>
+          <ThemedText>custom fonts such as this one.</ThemedText>
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
+        {/* <Text href="https://docs.expo.dev/versions/latest/sdk/font">
           <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+        </Text> */}
       </Collapsible>
       <Collapsible title="Light and dark mode components">
         <ThemedText>
@@ -78,9 +75,9 @@ export default function TabTwoScreen() {
           lets you inspect what the user's current color scheme is, and so you
           can adjust UI colors accordingly.
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
+        {/* <Text href="https://docs.expo.dev/develop/user-interface/color-themes/">
           <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+        </Text> */}
       </Collapsible>
       <Collapsible title="Animations">
         <ThemedText>

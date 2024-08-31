@@ -1,9 +1,9 @@
 import React from "react";
 
 import { AnimatedTabBarNavigator } from "react-native-animated-nav-tab-bar";
-import { HouseIcon, Search, Settings2Icon } from "lucide-react-native";
 import TabTwoScreen from "./explore";
 import DashboardPage from "../dashboard";
+import HomeScreen from ".";
 
 export default function TabLayout() {
   const Tabs = AnimatedTabBarNavigator();
@@ -21,15 +21,15 @@ export default function TabLayout() {
         component={DashboardPage}
         options={{
           title: "Home",
-          tabBarIcon: ({ color, focused }: any) => <HouseIcon color={color} />,
+          // tabBarIcon: ({ color, focused }: any) => <HouseIcon color={color} />,
         }}
       />
       <Tabs.Screen
         name="Search"
-        component={Search}
+        component={HomeScreen}
         options={{
           title: "search",
-          tabBarIcon: ({ color, focused }: any) => <Search color={color} />,
+          // tabBarIcon: ({ color, focused }: any) => <Search color={color} />,
         }}
       />
       <Tabs.Screen
@@ -37,9 +37,9 @@ export default function TabLayout() {
         component={TabTwoScreen}
         options={{
           title: "Settings",
-          tabBarIcon: ({ color, focused }: any) => (
-            <Settings2Icon color={color} />
-          ),
+          // tabBarIcon: ({ color, focused }: any) => (
+          //   // <Settings2Icon color={color} />
+          // ),
         }}
       />
     </Tabs.Navigator>

@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, Text, TextProps, View } from "react-native";
 
 interface DividerProps {
   width?: number;
@@ -8,7 +8,7 @@ interface DividerProps {
   dividerStyle?: any;
 }
 
-export default function Divider({
+export function Divider({
   width = 1,
   orientation = "horizontal",
   color = "#DFE4EA",
@@ -23,3 +23,31 @@ export default function Divider({
 
   return <View style={dividerStyles} />;
 }
+
+interface TypographyProps extends TextProps {
+  customStyle?: object;
+  variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "body" | "caption";
+  children: React.ReactNode;
+}
+
+export function Typography({
+  style,
+  variant = "body",
+  children,
+  customStyle,
+  ...props
+}: TypographyProps) {
+  // const textStyles = { style, fontFamily: fontStyles.Inter.fontFamily };
+
+  return (
+    <Text style={[fontStyles.Inter, style, customStyle]} {...props}>
+      {children}
+    </Text>
+  );
+}
+
+const fontStyles = StyleSheet.create({
+  Inter: {
+    fontFamily: "RobotoCondensed",
+  },
+});
