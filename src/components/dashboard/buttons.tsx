@@ -1,42 +1,57 @@
-import { Button, Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 import { Divider } from "../common/CustomUI";
-import { Inter_500Medium } from "@expo-google-fonts/inter";
 import { Typography } from "../common/Typography";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 type DashFuncProps = {
   label: string;
   children?: any;
+  caption?: string;
 };
 
-export default function DashFunctionBtns({ label, children }: DashFuncProps) {
+export default function DashFunctionBtns({
+  label,
+  children,
+  caption,
+}: DashFuncProps) {
   return (
-    <Pressable
+    <View
       style={{
+        marginHorizontal: 5,
+        borderRadius: 10,
         display: "flex",
-        flexDirection: "column",
-        // borderBottomColor: "black",
-        // borderBottomWidth: 0.5,
-      }}
-      onPress={() => {
-        console.log("DashFunction", label);
+        backgroundColor: "#DFE4EA",
       }}
     >
-      <Divider width={0.8} />
-      <View
+      <Pressable
         style={{
-          marginVertical: 15,
-          paddingHorizontal: 20,
           display: "flex",
           flexDirection: "row",
-          gap: 20,
+
+          padding: 15,
+
+          // borderBottomColor: "black",
+          // borderBottomWidth: 0.5,
+        }}
+        onPress={() => {
+          console.log("DashFunction", label);
         }}
       >
         <View style={{ display: "flex", justifyContent: "center" }}>
           {children}
         </View>
-        <Typography style={{ flexGrow: 1 }}>{label}</Typography>
-        <View></View>
-      </View>
-    </Pressable>
+        <View style={{ flexGrow: 1 }}>
+          <Typography style={{ fontSize: 15, lineHeight: 18 }}>
+            {label}
+          </Typography>
+          <Typography style={{ fontSize: 10, lineHeight: 14 }}>
+            {caption}
+          </Typography>
+        </View>
+        <View style={{ display: "flex", justifyContent: "center" }}>
+          <MaterialIcons name="chevron-right" size={20} />
+        </View>
+      </Pressable>
+    </View>
   );
 }

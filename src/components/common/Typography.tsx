@@ -1,7 +1,5 @@
 import { Text, type TextProps, StyleSheet } from "react-native";
 
-import { useThemeColor } from "@/src/hooks/useThemeColor";
-
 export type TypographyProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
@@ -31,6 +29,7 @@ export function Typography({
   return (
     <Text
       style={[
+        { fontFamily: "Manrope", fontWeight: 600 },
         // { color },
         variant === "default" ? styles.default : undefined,
         variant === "title" ? styles.title : undefined,

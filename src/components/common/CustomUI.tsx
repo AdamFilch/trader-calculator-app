@@ -31,25 +31,3 @@ interface TypographyProps extends TextProps {
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "body" | "caption";
   children: React.ReactNode;
 }
-
-export function Typography({
-  style,
-  variant = "body",
-  children,
-  customStyle,
-  ...props
-}: TypographyProps) {
-  // const textStyles = { style, fontFamily: fontStyles.Inter.fontFamily };
-
-  return (
-    <Text style={[fontStyles.Inter, style, customStyle]} {...props}>
-      {children}
-    </Text>
-  );
-}
-
-const fontStyles = StyleSheet.create({
-  Inter: {
-    fontFamily: "RobotoCondensed",
-  },
-});

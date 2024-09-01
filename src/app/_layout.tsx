@@ -26,7 +26,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    Manrope: require("../../assets/fonts/Manrope-Regular.ttf"),
+    Manrope: require("../../assets/fonts/Manrope-VariableFont_wght.ttf"),
     Inter: Inter_500Medium,
     RobotoCondensed: require("../../assets/fonts/RobotoCondensed-VariableFont_wght.ttf"),
   });
