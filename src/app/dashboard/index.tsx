@@ -9,9 +9,9 @@ export default function DashboardPage() {
         flexDirection: "column",
       }}
     >
-      <View>
-        <View style={{ height: 30 }}></View>
-        <DashFunctionBtns label={"Averageing"}></DashFunctionBtns>
+      <View style={{}}>
+        <View style={{ height: 40 }}></View>
+        <DashFunctionBtns label={"Averaging"}></DashFunctionBtns>
         <DashFunctionBtns label={"Profit/Loss"}></DashFunctionBtns>
         <DashFunctionBtns label={"Fixed Income Return"}></DashFunctionBtns>
         <DashFunctionBtns label={"Compounding Returns"}></DashFunctionBtns>

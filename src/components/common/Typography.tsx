@@ -24,14 +24,14 @@ export function Typography({
   lightColor,
   darkColor,
   variant = "default",
-  ...rest
+  ...props
 }: TypographyProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
+  // const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
 
   return (
     <Text
       style={[
-        { color },
+        // { color },
         variant === "default" ? styles.default : undefined,
         variant === "title" ? styles.title : undefined,
         variant === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
@@ -45,7 +45,7 @@ export function Typography({
         variant === "h6" ? styles.h6 : undefined,
         style,
       ]}
-      {...rest}
+      {...props}
     />
   );
 }
