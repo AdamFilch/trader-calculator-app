@@ -17,7 +17,7 @@ export default function DashFunctionBtns({
   return (
     <View
       style={{
-        marginHorizontal: 5,
+        marginHorizontal: 15,
         borderRadius: 10,
         display: "flex",
         backgroundColor: "#DFE4EA",
@@ -44,7 +44,9 @@ export default function DashFunctionBtns({
           <Typography style={{ fontSize: 15, lineHeight: 18 }}>
             {label}
           </Typography>
-          <Typography style={{ fontSize: 10, lineHeight: 14 }}>
+          <Typography
+            style={{ fontSize: 10, lineHeight: 14, fontFamily: "InterRegular" }}
+          >
             {caption}
           </Typography>
         </View>

@@ -27,7 +27,8 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     Manrope: require("../../assets/fonts/Manrope-VariableFont_wght.ttf"),
-    Inter: Inter_500Medium,
+    InterSemiBold: Inter_600SemiBold,
+    InterRegular: Inter_400Regular,
     RobotoCondensed: require("../../assets/fonts/RobotoCondensed-VariableFont_wght.ttf"),
   });
 

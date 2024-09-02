@@ -6,11 +6,11 @@ export default function DashboardPage() {
     { label: "Averaging", caption: "Ex. Average Down, Dollar Cost Averaging" },
     { label: "Profit/Lost", caption: "Calculate returns of trades made" },
     {
-      label: " Fixed Income Returns",
+      label: "Fixed Income Returns",
       caption: "Estimate Fixed Income Returns",
     },
     {
-      label: " Compounding Interest",
+      label: "Compounding Interest",
       caption: "Estimate Compounding Interest",
     },
   ];
@@ -20,18 +20,19 @@ export default function DashboardPage() {
       style={{
         display: "flex",
         flexDirection: "column",
+        paddingTop: 60,
       }}
     >
       <View
         style={{
           flex: 4,
           margin: 1,
-          marginHorizontal: 5,
+          marginHorizontal: 15,
           borderRadius: 10,
-          gap: 8,
+          gap: 10,
         }}
       >
-        <View style={{ flexDirection: "row", gap: 8 }}>
+        <View style={{ flexDirection: "row", gap: 10 }}>
           <View
             style={{
               height: 300,
@@ -49,10 +50,10 @@ export default function DashboardPage() {
             }}
           ></View>
         </View>
-        <View style={{ flexDirection: "row", gap: 8 }}>
+        <View style={{ flexDirection: "row", gap: 10 }}>
           <View
             style={{
-              height: 75,
+              height: 100,
               backgroundColor: "#DFE4EA",
               flex: 2,
               borderRadius: 10,
@@ -60,7 +61,7 @@ export default function DashboardPage() {
           ></View>
           <View
             style={{
-              height: 75,
+              height: 100,
               backgroundColor: "#DFE4EA",
               flex: 2,
               borderRadius: 10,
@@ -69,7 +70,7 @@ export default function DashboardPage() {
         </View>
       </View>
 
-      <View id="Calculator" style={{ marginTop: 8, gap: 8 }}>
+      <View id="Calculator" style={{ marginTop: 8, gap: 6 }}>
         {calcFuncs.map((calc, id) => (
           <DashFunctionBtns
             key={id}

@@ -29,7 +29,7 @@ export function Typography({
   return (
     <Text
       style={[
-        { fontFamily: "Manrope", fontWeight: 600 },
+        { fontFamily: "Inter" },
         // { color },
         variant === "default" ? styles.default : undefined,
         variant === "title" ? styles.title : undefined,
