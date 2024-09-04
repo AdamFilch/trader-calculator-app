@@ -35,30 +35,30 @@ export function ThemedText({
 
 const styles = StyleSheet.create({
   default: {
-    fontFamily: "Inter",
+    fontFamily: "InterRegular",
     fontSize: 16,
     lineHeight: 24,
   },
   defaultSemiBold: {
-    fontFamily: "Inter",
+    fontFamily: "InterRegular",
     fontSize: 16,
     lineHeight: 24,
     fontWeight: "600",
   },
   title: {
-    fontFamily: "Inter",
+    fontFamily: "InterRegular",
     fontSize: 32,
     fontWeight: "bold",
     lineHeight: 32,
   },
   subtitle: {
-    fontFamily: "Inter",
+    fontFamily: "InterRegular",
     fontSize: 20,
     fontWeight: "bold",
   },
   link: {
     lineHeight: 30,
-    fontFamily: "Inter",
+    fontFamily: "InterRegular",
     fontSize: 16,
     color: "#0a7ea4",
   },
