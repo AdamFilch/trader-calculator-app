@@ -1,12 +1,15 @@
+import { Typography } from "@/src/components/common/Typography";
 import React from "react";
 import { ScrollView, View } from "react-native";
 
 type Props = {};
 
-const AverageReturnCalculator = (props: Props) => {
+export default function AverageReturnCalculator(props: Props) {
   return (
-    <ScrollView>
-      <View style={{ margin: "auto" }}>AverageReturnCalculator</View>
-    </ScrollView>
+    <View>
+      <View style={{ margin: "auto" }}>
+        <Typography>AverageReturnCalculator</Typography>
+      </View>
+    </View>
   );
-};
+}

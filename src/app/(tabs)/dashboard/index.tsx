@@ -1,17 +1,28 @@
 import { ScrollView, View } from "react-native";
 import DashFunctionBtns from "@/src/components/dashboard/buttons";
+import { Link } from "expo-router";
 
 export default function DashboardPage() {
   const calcFuncs = [
-    { label: "Averaging", caption: "Ex. Average Down, Dollar Cost Averaging" },
-    { label: "Profit/Lost", caption: "Calculate returns of trades made" },
+    {
+      label: "Averaging",
+      caption: "Ex. Average Down, Dollar Cost Averaging",
+      link: "average",
+    },
+    {
+      label: "Profit/Lost",
+      caption: "Calculate returns of trades made",
+      link: "profit-loss",
+    },
     {
       label: "Fixed Income Returns",
       caption: "Estimate Fixed Income Returns",
+      link: "projection/fixed-income",
     },
     {
       label: "Compounding Interest",
       caption: "Estimate Compounding Interest",
+      link: "projection/compounding",
     },
   ];
 
@@ -59,14 +70,15 @@ export default function DashboardPage() {
               borderRadius: 10,
             }}
           ></View>
-          <View
+          <Link
+            href={"/(tabs)/explore"}
             style={{
               height: 100,
-              backgroundColor: "#DFE4EA",
+              backgroundColor: "red",
               flex: 2,
               borderRadius: 10,
             }}
-          ></View>
+          ></Link>
         </View>
       </View>
 
@@ -76,6 +88,7 @@ export default function DashboardPage() {
             key={id}
             label={calc.label}
             caption={calc.caption}
+            link={calc.link}
           />
         ))}
       </View>

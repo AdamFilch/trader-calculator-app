@@ -2,17 +2,20 @@ import { Pressable, View } from "react-native";
 import { Divider } from "../common/CustomUI";
 import { Typography } from "../common/Typography";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { Href, Link } from "expo-router";
 
 type DashFuncProps = {
   label: string;
   children?: any;
   caption?: string;
+  link: string;
 };
 
 export default function DashFunctionBtns({
   label,
   children,
   caption,
+  link,
 }: DashFuncProps) {
   return (
     <View
@@ -45,7 +48,11 @@ export default function DashFunctionBtns({
             {label}
           </Typography>
           <Typography
-            style={{ fontSize: 10, lineHeight: 14, fontFamily: "InterRegular" }}
+            style={{
+              fontSize: 10,
+              lineHeight: 14,
+              fontFamily: "InterRegular",
+            }}
           >
             {caption}
           </Typography>

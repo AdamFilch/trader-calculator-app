@@ -2,11 +2,10 @@ import React from "react";
 
 import { AnimatedTabBarNavigator } from "react-native-animated-nav-tab-bar";
 import TabTwoScreen from "./explore";
-import DashboardPage from "../dashboard";
+import DashboardPage from "./dashboard";
 import HomeScreen from ".";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { View } from "react-native";
 
 export default function TabLayout() {
   const Tabs = AnimatedTabBarNavigator();
