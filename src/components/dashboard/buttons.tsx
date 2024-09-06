@@ -2,7 +2,7 @@ import { Pressable, View } from "react-native";
 import { Divider } from "../common/CustomUI";
 import { Typography } from "../common/Typography";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { Href, Link } from "expo-router";
+import { Href, useRouter } from "expo-router";
 
 type DashFuncProps = {
   label: string;
@@ -17,6 +17,8 @@ export default function DashFunctionBtns({
   caption,
   link,
 }: DashFuncProps) {
+  const router = useRouter();
+  const path: any = `/calculator/${link}`;
   return (
     <View
       style={{
@@ -30,14 +32,11 @@ export default function DashFunctionBtns({
         style={{
           display: "flex",
           flexDirection: "row",
-
           padding: 15,
-
-          // borderBottomColor: "black",
-          // borderBottomWidth: 0.5,
         }}
         onPress={() => {
           console.log("DashFunction", label);
+          router.push(path);
         }}
       >
         <View style={{ display: "flex", justifyContent: "center" }}>
@@ -51,7 +50,7 @@ export default function DashFunctionBtns({
             style={{
               fontSize: 10,
               lineHeight: 14,
-              fontFamily: "InterRegular",
+              fontFamily: "Inter",
             }}
           >
             {caption}

@@ -1,8 +1,8 @@
-import { ScrollView, View } from "react-native";
+import { Pressable, ScrollView, View } from "react-native";
 import DashFunctionBtns from "@/src/components/dashboard/buttons";
-import { Link } from "expo-router";
+import { Link, useNavigation } from "expo-router";
 
-export default function DashboardPage() {
+export default function DashboardPage({}) {
   const calcFuncs = [
     {
       label: "Averaging",
@@ -70,15 +70,6 @@ export default function DashboardPage() {
               borderRadius: 10,
             }}
           ></View>
-          <Link
-            href={"/(tabs)/explore"}
-            style={{
-              height: 100,
-              backgroundColor: "red",
-              flex: 2,
-              borderRadius: 10,
-            }}
-          ></Link>
         </View>
       </View>
 
