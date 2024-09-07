@@ -1,6 +1,7 @@
 import { Typography } from "@/src/components/common/Typography";
 import React, { useState } from "react";
 import { ScrollView, TextInput, View } from "react-native";
+import { ProfitLossResults } from "./result";
 
 type Props = {};
 
@@ -12,9 +13,7 @@ export default function ProfitLossReturnCalculator(props: Props) {
   return (
     <ScrollView>
       <View style={{ marginHorizontal: 30 }}>
-        <View>
-          <Typography>Results</Typography>
-        </View>
+        <ProfitLossResults />
         <Typography>ProfitLossReturnCalculator</Typography>
         <View
           style={{
