@@ -34,7 +34,13 @@ export default function RootLayout() {
       // value={colorScheme === "dark" ? DarkTheme : traderThemeLight}
       value={traderThemeLight}
     >
-      <Stack>
+      <Stack
+        screenOptions={
+          {
+            // headerShown: false,
+          }
+        }
+      >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
