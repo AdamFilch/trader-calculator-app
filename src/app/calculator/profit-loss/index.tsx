@@ -1,14 +1,21 @@
 import { Typography } from "@/src/components/common/Typography";
 import React, { useState } from "react";
-import { ScrollView, TextInput, View } from "react-native";
+import { Pressable, ScrollView, TextInput, View } from "react-native";
 import { ProfitLossResults } from "./result";
+import { useProfitLossStore } from "./lib";
 
 type Props = {};
 
 export default function ProfitLossReturnCalculator(props: Props) {
-  const [boughtFor, setBooughtFor] = useState("");
-  const [soldFor, setSoldFor] = useState("");
-  const [lotSize, setLotSize] = useState("");
+  const boughtFor = useProfitLossStore((s) => s.profitloss.bought_for);
+  const soldFor = useProfitLossStore((s) => s.profitloss.sold_for);
+  const lotSize = useProfitLossStore((s) => s.profitloss.lot_size);
+
+  const { add_bf, add_ls, add_sf, calculate } = useProfitLossStore();
+
+  function validateNadd() {
+    calculate();
+  }
 
   return (
     <ScrollView>
@@ -41,7 +48,8 @@ export default function ProfitLossReturnCalculator(props: Props) {
                 keyboardType="numeric"
                 value={boughtFor.toString()}
                 onChangeText={(text) => {
-                  setBooughtFor(text);
+                  add_bf(text);
+                  validateNadd();
                 }}
                 maxLength={10}
               />
@@ -62,7 +70,8 @@ export default function ProfitLossReturnCalculator(props: Props) {
                 keyboardType="numeric"
                 value={soldFor.toString()}
                 onChangeText={(text) => {
-                  setSoldFor(text);
+                  add_sf(text);
+                  validateNadd();
                 }}
                 maxLength={10}
               />
@@ -83,7 +92,8 @@ export default function ProfitLossReturnCalculator(props: Props) {
                 keyboardType="numeric"
                 value={lotSize.toString()}
                 onChangeText={(text) => {
-                  setLotSize(text);
+                  add_ls(text);
+                  validateNadd();
                 }}
                 maxLength={10}
               />
