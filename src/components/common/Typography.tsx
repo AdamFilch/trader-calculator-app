@@ -21,7 +21,7 @@ export function Typography({
   style,
   lightColor,
   darkColor,
-  variant = "default",
+  variant,
   ...props
 }: TypographyProps) {
   // const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");

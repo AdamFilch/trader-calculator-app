@@ -1,6 +1,6 @@
-import { Pressable, ScrollView, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import DashFunctionBtns from "@/src/components/dashboard/buttons";
-import { Link, useNavigation } from "expo-router";
+import { ClockDisplay } from "@/src/components/dashboard/clock-display";
 
 export default function DashboardPage({}) {
   const calcFuncs = [
@@ -44,14 +44,7 @@ export default function DashboardPage({}) {
         }}
       >
         <View style={{ flexDirection: "row", gap: 10 }}>
-          <View
-            style={{
-              height: 300,
-              backgroundColor: "#DFE4EA",
-              flex: 3,
-              borderRadius: 10,
-            }}
-          ></View>
+          <ClockDisplay />
           <View
             style={{
               height: 300,
