@@ -9,6 +9,7 @@ export default function AverageReturnCalculator(props: Props) {
     <View>
       <View style={{ margin: "auto" }}>
         <Typography>AverageReturnCalculator</Typography>
+        <View></View>
       </View>
     </View>
   );

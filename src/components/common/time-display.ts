@@ -12,3 +12,5 @@ export function FullCurrentTime() {
   const res = hours + ":" + mins + ":" + sec;
   return res;
 }
+
+export function formatTimestamp() {}

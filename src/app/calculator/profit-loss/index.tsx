@@ -1,8 +1,8 @@
 import { Typography } from "@/src/components/common/Typography";
 import React, { useState } from "react";
 import { Pressable, ScrollView, TextInput, View } from "react-native";
-import { ProfitLossResults } from "./result";
-import { useProfitLossStore } from "./lib";
+import { ProfitLossResults } from "../../../components/dashboard/calculator/profit-loss/result";
+import { useProfitLossStore } from "../../../components/dashboard/calculator/profit-loss/lib";
 
 type Props = {};
 
