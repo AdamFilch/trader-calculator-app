@@ -3,7 +3,14 @@ import { TextInput, View } from "react-native";
 
 export function AverageArray() {
   return (
-    <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        borderColor: "blue",
+        borderWidth: 1,
+      }}
+    >
       <View>
         <Typography>Stock Price</Typography>
         <View>
