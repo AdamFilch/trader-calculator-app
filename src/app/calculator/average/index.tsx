@@ -1,13 +1,13 @@
 import { Typography } from "@/src/components/common/Typography";
 import { AverageCalculatorResults } from "@/src/components/dashboard/calculator/average/result";
-import { AverageArray } from "@/src/components/dashboard/calculator/average/tools";
+import { InputArray } from "@/src/components/dashboard/calculator/average/comp";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import React from "react";
 import { Pressable, ScrollView, View } from "react-native";
+import { useAverageStore } from "@/src/components/dashboard/calculator/average/libt";
 
-type Props = {};
-
-export default function AverageReturnCalculator(props: Props) {
+export default function AverageReturnCalculator() {
+  const averageArrays = useAverageStore((s) => s.averages_array);
   return (
     <View>
       <View style={{ margin: "auto" }}>
@@ -16,7 +16,9 @@ export default function AverageReturnCalculator(props: Props) {
         </View>
         <Typography>AverageReturnCalculator</Typography>
         <View>
-          <AverageArray />
+          {averageArrays.map((arr, index) => (
+            <InputArray val={arr} key={index} />
+          ))}
         </View>
         <Pressable>
           <View>

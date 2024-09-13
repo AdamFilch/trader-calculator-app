@@ -1,7 +1,12 @@
 import { Typography } from "@/src/components/common/Typography";
 import { TextInput, View } from "react-native";
+import { AverageArray } from "@/src/lib/interfaces/Average";
 
-export function AverageArray() {
+interface InputProps {
+  val: AverageArray;
+}
+
+export function InputArray({ val }: InputProps) {
   return (
     <View
       style={{
