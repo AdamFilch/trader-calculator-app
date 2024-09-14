@@ -9,6 +9,7 @@ interface AverageCalculatorState {
   add_sp: (index: number, val: string) => void;
   add_ls: (index: number, val: string) => void;
   add_array: () => void;
+  delete_array: (index: number) => void;
 }
 
 export const useAverageStore = create<AverageCalculatorState>((set) => ({
@@ -48,6 +49,14 @@ export const useAverageStore = create<AverageCalculatorState>((set) => ({
         lot_size: "",
       };
       const newArrayState = [...state.averages_array, newArrInputs];
+      return { ...state, averages_array: newArrayState };
+    });
+  },
+  delete_array: (index) => {
+    set((state) => {
+      const newArrayState = state.averages_array.filter(
+        (arr) => arr.id != index - 1
+      );
       return { ...state, averages_array: newArrayState };
     });
   },
