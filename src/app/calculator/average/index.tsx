@@ -4,7 +4,7 @@ import { InputArray } from "@/src/components/dashboard/calculator/average/comp";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import React from "react";
 import { Pressable, ScrollView, View } from "react-native";
-import { useAverageStore } from "@/src/components/dashboard/calculator/average/libt";
+import { useAverageStore } from "@/src/components/dashboard/calculator/average/lib";
 
 export default function AverageReturnCalculator() {
   const averageArrays = useAverageStore((s) => s.averages_array);
@@ -16,8 +16,8 @@ export default function AverageReturnCalculator() {
         </View>
         <Typography>AverageReturnCalculator</Typography>
         <View>
-          {averageArrays.map((arr, index) => (
-            <InputArray val={arr} key={index} />
+          {averageArrays.map((arr) => (
+            <InputArray val={arr} key={arr.id} />
           ))}
         </View>
         <Pressable>

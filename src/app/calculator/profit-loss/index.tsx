@@ -46,7 +46,7 @@ export default function ProfitLossReturnCalculator(props: Props) {
             >
               <TextInput
                 keyboardType="numeric"
-                value={boughtFor.toString()}
+                value={boughtFor}
                 onChangeText={(text) => {
                   add_bf(text);
                   validateNadd();
@@ -68,7 +68,7 @@ export default function ProfitLossReturnCalculator(props: Props) {
             >
               <TextInput
                 keyboardType="numeric"
-                value={soldFor.toString()}
+                value={soldFor}
                 onChangeText={(text) => {
                   add_sf(text);
                   validateNadd();
@@ -90,7 +90,7 @@ export default function ProfitLossReturnCalculator(props: Props) {
             >
               <TextInput
                 keyboardType="numeric"
-                value={lotSize.toString()}
+                value={lotSize}
                 onChangeText={(text) => {
                   add_ls(text);
                   validateNadd();
