@@ -10,7 +10,6 @@ export default function ProfitLossReturnCalculator(props: Props) {
   const boughtFor = useProfitLossStore((s) => s.profitloss.bought_for);
   const soldFor = useProfitLossStore((s) => s.profitloss.sold_for);
   const lotSize = useProfitLossStore((s) => s.profitloss.lot_size);
-
   const { add_bf, add_ls, add_sf, calculate } = useProfitLossStore();
 
   function validateNadd() {

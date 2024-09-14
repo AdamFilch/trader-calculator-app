@@ -8,6 +8,7 @@ import { useAverageStore } from "@/src/components/dashboard/calculator/average/l
 
 export default function AverageReturnCalculator() {
   const averageArrays = useAverageStore((s) => s.averages_array);
+  const add_array = useAverageStore((s) => s.add_array);
   return (
     <View>
       <View style={{ margin: "auto" }}>
@@ -25,7 +26,7 @@ export default function AverageReturnCalculator() {
             <MaterialIcons
               name="add"
               onPress={() => {
-                console.log("Average Add Arrays");
+                add_array();
               }}
             />
           </View>
