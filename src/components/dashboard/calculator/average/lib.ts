@@ -5,7 +5,7 @@ interface AverageCalculatorState {
   averages_array: AverageArray[];
   total_lot_size: number;
   amount_invested: number;
-  cumm_average: string;
+  cumm_average: number;
   calculate: () => void;
   add_sp: (index: number, val: string) => void;
   add_ls: (index: number, val: string) => void;
@@ -23,7 +23,7 @@ export const useAverageStore = create<AverageCalculatorState>((set) => ({
     })),
   total_lot_size: 0,
   amount_invested: 0,
-  cumm_average: "",
+  cumm_average: 0,
   calculate: () => {
     set((state) => {
       state.total_lot_size = 0;
@@ -39,6 +39,8 @@ export const useAverageStore = create<AverageCalculatorState>((set) => ({
           const invested = sp * 100 * ls;
           state.total_lot_size += ls;
           state.amount_invested += invested;
+          state.cumm_average =
+            state.amount_invested / state.total_lot_size / 100;
         }
       });
       const acceptedArrays = state.averages_array.filter(
