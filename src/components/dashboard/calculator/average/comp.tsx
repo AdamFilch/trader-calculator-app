@@ -11,7 +11,11 @@ interface InputProps {
 export function InputArray({ val }: InputProps) {
   // const [stockPr, setStockPrice] = useState(val.stock_price || "");
   // const [lotSiz, setLotSize] = useState(val.stock_price || "");
-  const { add_ls, add_sp } = useAverageStore();
+  const { add_ls, add_sp, calculate } = useAverageStore();
+
+  function validate() {
+    calculate();
+  }
 
   return (
     <View
@@ -30,6 +34,7 @@ export function InputArray({ val }: InputProps) {
             value={val.stock_price}
             onChangeText={(text) => {
               add_sp(val.id, text);
+              validate();
             }}
             maxLength={10}
           />
@@ -43,6 +48,7 @@ export function InputArray({ val }: InputProps) {
             value={val.lot_size.toString()}
             onChangeText={(text) => {
               add_ls(val.id, text);
+              validate();
             }}
             maxLength={10}
           />

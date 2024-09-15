@@ -4,6 +4,7 @@ import { AverageArray } from "@/src/lib/interfaces/Average";
 interface AverageCalculatorState {
   averages_array: AverageArray[];
   total_lot_size: number;
+  amount_invested: number;
   cumm_average: string;
   calculate: () => void;
   add_sp: (index: number, val: string) => void;
@@ -21,8 +22,34 @@ export const useAverageStore = create<AverageCalculatorState>((set) => ({
       lot_size: "",
     })),
   total_lot_size: 0,
+  amount_invested: 0,
   cumm_average: "",
-  calculate: () => {},
+  calculate: () => {
+    set((state) => {
+      state.total_lot_size = 0;
+      state.amount_invested = 0;
+
+      const filterd = state.averages_array.map((arr) => {
+        if (
+          !isNaN(parseInt(arr.lot_size)) &&
+          !isNaN(parseInt(arr.stock_price))
+        ) {
+          const ls = parseInt(arr.lot_size);
+          const sp = parseInt(arr.stock_price);
+          const invested = sp * 100 * ls;
+          state.total_lot_size += ls;
+          state.amount_invested += invested;
+        }
+      });
+      const acceptedArrays = state.averages_array.filter(
+        (arr) =>
+          !isNaN(parseInt(arr.lot_size)) && !isNaN(parseInt(arr.stock_price))
+      );
+      console.log("CalculateAverage", acceptedArrays);
+
+      return { ...state };
+    });
+  },
   add_sp: (index, val) => {
     set((state) => {
       const newArrayState = state.averages_array.map((arr, i) =>

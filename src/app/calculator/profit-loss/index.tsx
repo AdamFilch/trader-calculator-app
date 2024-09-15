@@ -12,7 +12,7 @@ export default function ProfitLossReturnCalculator(props: Props) {
   const lotSize = useProfitLossStore((s) => s.profitloss.lot_size);
   const { add_bf, add_ls, add_sf, calculate } = useProfitLossStore();
 
-  function validateNadd() {
+  function validate() {
     calculate();
   }
 
@@ -48,7 +48,7 @@ export default function ProfitLossReturnCalculator(props: Props) {
                 value={boughtFor}
                 onChangeText={(text) => {
                   add_bf(text);
-                  validateNadd();
+                  validate();
                 }}
                 maxLength={10}
               />
@@ -70,7 +70,7 @@ export default function ProfitLossReturnCalculator(props: Props) {
                 value={soldFor}
                 onChangeText={(text) => {
                   add_sf(text);
-                  validateNadd();
+                  validate();
                 }}
                 maxLength={10}
               />
@@ -92,7 +92,7 @@ export default function ProfitLossReturnCalculator(props: Props) {
                 value={lotSize}
                 onChangeText={(text) => {
                   add_ls(text);
-                  validateNadd();
+                  validate();
                 }}
                 maxLength={10}
               />
