@@ -52,6 +52,20 @@ export const useProfitLossStore = create<ProfitLossState>((set) => ({
             plus_minus: plusMinusResult,
           },
         };
+      } else if (!isNaN(bf) && !isNaN(ls)) {
+        const initialInvestment = bf * 100 * ls;
+        const transactionFeeResult =
+          initialInvestment * parseFloat(biayaTranksi.buy);
+        return {
+          profitloss: {
+            ...state.profitloss,
+            modal: initialInvestment,
+            transaction_fee: transactionFeeResult,
+            profit: 0,
+            plus_minus: 0,
+            realised: 0,
+          },
+        };
       }
 
       return state;
