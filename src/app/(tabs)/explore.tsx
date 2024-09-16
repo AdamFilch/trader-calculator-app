@@ -5,8 +5,10 @@ import { Collapsible } from "@/src/components/expo-native/Collapsible";
 import ParallaxScrollView from "@/src/components/expo-native/ParallaxScrollView";
 import { ThemedText } from "@/src/components/expo-native/ThemedText";
 import { ThemedView } from "@/src/components/expo-native/ThemedView";
+import { useTranslation } from "react-i18next";
 
 export default function TabTwoScreen() {
+  const { t } = useTranslation("settings");
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
@@ -15,11 +17,9 @@ export default function TabTwoScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
+        <ThemedText type="title">{t("Welcome")}</ThemedText>
       </ThemedView>
-      <ThemedText>
-        This app includes example code to help you get started.
-      </ThemedText>
+      <ThemedText>333</ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
           This app has two screens:{" "}

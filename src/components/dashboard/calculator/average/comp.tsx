@@ -3,6 +3,7 @@ import { TextInput, View } from "react-native";
 import { AverageArray } from "@/src/lib/interfaces/Average";
 import { useState } from "react";
 import { useAverageStore } from "./lib";
+import { useTranslation } from "react-i18next";
 
 interface InputProps {
   val: AverageArray;
@@ -12,6 +13,7 @@ export function InputArray({ val }: InputProps) {
   // const [stockPr, setStockPrice] = useState(val.stock_price || "");
   // const [lotSiz, setLotSize] = useState(val.stock_price || "");
   const { add_ls, add_sp, calculate } = useAverageStore();
+  const t = useTranslation();
 
   function validate() {
     calculate();

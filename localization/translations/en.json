@@ -1,5 +1,13 @@
  {
     "language": "English",
-    "screens": {
+    "settings": {
+        "Welcome": "Welcome English"
+    },
+    "average": {
+        "Stock Price": "Stock Price",
+        "Lot Size": "Lot Size",
+        "Amount Invested: {{invested}}": "Amount Invested: {{invested}}",
+        "Cummulative Average: {{aver}}": "Cummulative Average: {{aver}}",
+        "Total Lot Size: {{total}}:": "Total Lot Size: {{total}}"
     }
  }

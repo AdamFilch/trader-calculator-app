@@ -1,0 +1,13 @@
+{
+    "language": "Malay",
+    "settings": {
+        "Welcome": "Welcome Malay"
+    },
+    "average": {
+        "Stock Price": "Harge Saham",
+        "Lot Size": "Lot Size",
+        "Amount Invested: {{invested}}": "Amount Invested: {{invested}}",
+        "Cummulative Average: {{aver}}": "Cummulative Average: {{aver}}",
+        "Total Lot Size: {{total}}:": "Total Lot Size: {{total}}"
+    }
+ }
