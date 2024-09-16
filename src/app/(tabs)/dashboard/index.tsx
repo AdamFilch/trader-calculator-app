@@ -16,7 +16,7 @@ export default function DashboardPage({}) {
     },
     {
       label: "Fixed Income Returns",
-      caption: "Estimate Fixed Income Returns",
+      caption: "Estimate Fixed Income Bonds",
       link: "projection/fixed-income",
     },
     {
