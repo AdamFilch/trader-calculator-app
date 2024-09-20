@@ -1,6 +1,6 @@
 import { Typography } from "@/src/components/common/Typography";
 import { TextInput, View } from "react-native";
-import { AverageArray } from "@/src/lib/interfaces/Average";
+import { AverageArray } from "@/src/lib/interfaces/calculator";
 import { useState } from "react";
 import { useAverageStore } from "./context";
 import { useTranslation } from "react-i18next";

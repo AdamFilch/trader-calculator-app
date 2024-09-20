@@ -1,3 +1,4 @@
+import { ProfitLossModel } from "@/src/lib/interfaces/calculator";
 import { create } from "zustand";
 
 const biayaTranksi = {

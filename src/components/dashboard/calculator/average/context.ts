@@ -1,5 +1,5 @@
+import { AverageArray } from "@/src/lib/interfaces/calculator";
 import { create } from "zustand";
-import { AverageArray } from "@/src/lib/interfaces/Average";
 
 interface AverageCalculatorState {
   averages_array: AverageArray[];
