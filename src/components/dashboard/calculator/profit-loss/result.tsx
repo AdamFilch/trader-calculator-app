@@ -1,7 +1,7 @@
 import { Typography } from "@/src/components/common/Typography";
 import React, { useState } from "react";
 import { View } from "react-native";
-import { useProfitLossStore } from "./lib";
+import { useProfitLossStore } from "./context";
 
 type Props = {};
 

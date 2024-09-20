@@ -1,6 +1,6 @@
 import { Typography } from "@/src/components/common/Typography";
 import { View } from "react-native";
-import { useAverageStore } from "./lib";
+import { useAverageStore } from "./context";
 
 export function AverageCalculatorResults() {
   const invested = useAverageStore((state) => state.amount_invested);

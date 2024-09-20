@@ -2,7 +2,7 @@ import { Typography } from "@/src/components/common/Typography";
 import { TextInput, View } from "react-native";
 import { AverageArray } from "@/src/lib/interfaces/Average";
 import { useState } from "react";
-import { useAverageStore } from "./lib";
+import { useAverageStore } from "./context";
 import { useTranslation } from "react-i18next";
 
 interface InputProps {
