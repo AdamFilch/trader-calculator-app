@@ -47,7 +47,6 @@ export const useAverageStore = create<AverageCalculatorState>((set) => ({
         (arr) =>
           !isNaN(parseInt(arr.lot_size)) && !isNaN(parseInt(arr.stock_price))
       );
-      console.log("CalculateAverage", acceptedArrays);
 
       return { ...state };
     });

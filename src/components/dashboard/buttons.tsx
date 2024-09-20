@@ -35,7 +35,6 @@ export default function DashFunctionBtns({
           padding: 15,
         }}
         onPress={() => {
-          console.log("DashFunction", label);
           router.push(path);
         }}
       >
