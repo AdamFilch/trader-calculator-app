@@ -16,5 +16,6 @@ export const useFixedIncomeStore = create<FixedIncomeState>((set) => ({
     age: 0,
     price_per_unit: 0,
     period: [],
+    unit_per_mon: 0,
   },
 }));

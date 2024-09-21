@@ -24,12 +24,14 @@ export interface FixedIncomeModel {
   return_per_tempo: Number;
   age: Number;
   price_per_unit: Number;
+  unit_per_mon: Number;
   period: FIPeriodModel[];
 }
 
 interface FIPeriodModel {
   id: string;
   date: Date;
+  total_units: Number;
   return: Number;
   current_profit: Number;
 }
