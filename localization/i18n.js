@@ -1,9 +1,9 @@
 import { getLocales } from "expo-localization";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import en from "./translations/en.json";
-import id from "./translations/id.json";
-import ms from "./translations/ms.json";
+import en from "./translations/en/en.json";
+import id from "./translations/id/id.json";
+import ms from "./translations/ms/ms.json";
 
 const resources = {
   en: en,
