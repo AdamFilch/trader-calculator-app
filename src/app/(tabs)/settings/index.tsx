@@ -160,7 +160,12 @@ function SegmentAsPressable({
   const { t } = useTranslation("settings");
 
   return (
-    <Pressable style={{ padding: 10, display: "flex", flexDirection: "row" }}>
+    <Pressable
+      style={{ padding: 10, display: "flex", flexDirection: "row" }}
+      onPress={() => {
+        console.log(title);
+      }}
+    >
       <MaterialIcons name={"disabled-by-default"} />
       <Typography style={{ flex: 1 }}>{t(title)}</Typography>
       <MaterialIcons name="chevron-right" />
