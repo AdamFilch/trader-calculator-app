@@ -1,8 +1,6 @@
 import { Text, type TextProps, StyleSheet } from "react-native";
 
 export type TypographyProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
   variant?:
     | "default"
     | "title"
@@ -17,13 +15,7 @@ export type TypographyProps = TextProps & {
     | "h6";
 };
 
-export function Typography({
-  style,
-  lightColor,
-  darkColor,
-  variant,
-  ...props
-}: TypographyProps) {
+export function Typography({ style, variant, ...props }: TypographyProps) {
   // const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
 
   return (

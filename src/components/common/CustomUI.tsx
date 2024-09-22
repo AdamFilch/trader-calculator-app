@@ -26,12 +26,42 @@ export function Divider({
   return <View style={dividerStyles} />;
 }
 
-interface TypographyProps extends TextProps {
-  customStyle?: object;
-  variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "body" | "caption";
-  children: React.ReactNode;
-}
+type IconProps = TextProps & {
+  icon?:
+    | keyof typeof MaterialIcons.glyphMap
+    | keyof typeof MaterialCommunityIcons.glyphMap
+    | any;
+  community?: boolean;
+  size?: "large" | "medium" | "small";
+};
 
-export function Icon({}) {
-  return;
+export function Icon({
+  style,
+  community = false,
+  icon = "disabled-by-default",
+  size = "medium",
+}: IconProps) {
+  let iconSize = 20;
+  switch (size) {
+    case "large":
+      iconSize = 30;
+      break;
+    case "medium":
+      iconSize = 20;
+      break;
+    case "small":
+      iconSize = 15;
+      break;
+  }
+
+  const base = community ? (
+    <MaterialCommunityIcons
+      name={icon}
+      style={[{ fontSize: iconSize }, style]}
+    />
+  ) : (
+    <MaterialIcons name={icon} style={[{ fontSize: iconSize }, style]} />
+  );
+
+  return base;
 }
