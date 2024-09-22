@@ -1,7 +1,10 @@
 {
     "language": "Malay",
     "settings": {
-        "Welcome": "Welcome Malay"
+        "Welcome": "Welcome Malay",
+        "Settings": "Settings",
+        "Change Theme": "Ubah Tema",
+        "Change Language": "Ubah Bahasa"
     },
     "average": {
         "Stock Price": "Harge Saham",

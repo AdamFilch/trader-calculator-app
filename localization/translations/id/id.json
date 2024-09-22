@@ -1,7 +1,10 @@
 {
     "language": "Indonesian",
     "settings": {
-        "Welcome": "Welcome Indonesian"
+        "Welcome": "Welcome Indonesian",
+        "Settings": "Settings",
+        "Change Theme": "Ganti Tema",
+        "Change Language": "Ganti Bahasa"
     },
     "average": {
         "Stock Price": "Harge Saham",

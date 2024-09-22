@@ -1,7 +1,10 @@
  {
     "language": "English",
     "settings": {
-        "Welcome": "Welcome English"
+        "Welcome": "Welcome English",
+        "Settings": "Settings",
+        "Change Theme": "Change Theme",
+        "Change Language": "Change Language"
     },
     "average": {
         "Stock Price": "Stock Price",
