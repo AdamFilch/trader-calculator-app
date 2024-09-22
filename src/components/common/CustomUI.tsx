@@ -31,3 +31,7 @@ interface TypographyProps extends TextProps {
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "body" | "caption";
   children: React.ReactNode;
 }
+
+export function Icon({}) {
+  return;
+}

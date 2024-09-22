@@ -28,9 +28,9 @@ export default function SettingsPage() {
     },
   ];
 
-  const segments1 = [
+  const generalSegm = [
     {
-      leadIcon: "",
+      leadIcon: "home",
       title: "Change Language",
       trail: <></>,
     },
@@ -45,6 +45,37 @@ export default function SettingsPage() {
       trail: <></>,
     },
   ];
+
+  const aboutUsSegm = [
+    {
+      leadIcon: "home",
+      title: "Privacy Policy",
+      redirect: "",
+    },
+    {
+      leadIcon: "",
+      title: "About Developer",
+      redirect: "",
+    },
+  ];
+
+  const moreSegm = [
+    {
+      leadIcon: "",
+      title: "Rate my App",
+      redirect: "",
+    },
+    {
+      leadIcon: "",
+      title: "Report a Problem ",
+      redirect: "",
+    },
+    {
+      leadIcon: "",
+      title: "Suggest an Imporvement",
+      redirect: "",
+    },
+  ];
   return (
     <ScrollView style={{ padding: 30 }}>
       <View>
@@ -56,11 +87,11 @@ export default function SettingsPage() {
           style={{ borderWidth: 0.8, borderColor: "gray", borderRadius: 15 }}
         >
           <FlatList
-            data={segments1}
+            data={generalSegm}
             renderItem={({ item }) => (
-              <SettingSegment title={item.title} leadIcon={item.leadIcon}>
+              <SegmentWithTrail title={item.title} leadIcon={item.leadIcon}>
                 {item.trail}
-              </SettingSegment>
+              </SegmentWithTrail>
             )}
           />
         </View>
@@ -70,15 +101,33 @@ export default function SettingsPage() {
         <View
           style={{ borderWidth: 0.8, borderColor: "gray", borderRadius: 15 }}
         >
-          <View style={{ padding: 10 }}>
-            <Typography>{t("Privacy Policy")}</Typography>
-          </View>
-          <View style={{ padding: 10 }}>
-            <Typography>{t("About Developer")}</Typography>
-          </View>
-          <View style={{ padding: 10 }}>
-            <Typography>{t("More")}</Typography>
-          </View>
+          <FlatList
+            data={aboutUsSegm}
+            renderItem={({ item }) => (
+              <SegmentAsPressable
+                title={item.title}
+                leadIcon={item.leadIcon}
+                onPress={item.redirect}
+              />
+            )}
+          />
+        </View>
+      </View>
+      <View>
+        <Typography>{t("More")}</Typography>
+        <View
+          style={{ borderWidth: 0.8, borderColor: "gray", borderRadius: 15 }}
+        >
+          <FlatList
+            data={moreSegm}
+            renderItem={({ item }) => (
+              <SegmentAsPressable
+                title={item.title}
+                leadIcon={item.leadIcon}
+                onPress={item.redirect}
+              />
+            )}
+          />
         </View>
       </View>
     </ScrollView>
@@ -87,18 +136,34 @@ export default function SettingsPage() {
 
 interface SettingsSegmentProps {
   title: string;
-  leadIcon: string;
-  children: React.ReactNode;
+  leadIcon: any;
+  children?: React.ReactNode;
 }
 
-function SettingSegment({ title, leadIcon, children }: SettingsSegmentProps) {
+function SegmentWithTrail({ title, leadIcon, children }: SettingsSegmentProps) {
   const { t } = useTranslation("settings");
 
   return (
-    <View style={{ padding: 10 }}>
-      <MaterialIcons />
-      <Typography>{t(title)}</Typography>
+    <View style={{ padding: 10, display: "flex", flexDirection: "row" }}>
+      <MaterialIcons name={leadIcon} color={"black"} />
+      <Typography style={{ flex: 1 }}>{t(title)}</Typography>
       {children}
     </View>
+  );
+}
+
+function SegmentAsPressable({
+  title,
+  leadIcon = "disabled-by-default",
+  onPress,
+}: SettingsSegmentProps & { onPress: string }) {
+  const { t } = useTranslation("settings");
+
+  return (
+    <Pressable style={{ padding: 10, display: "flex", flexDirection: "row" }}>
+      <MaterialIcons name={"disabled-by-default"} />
+      <Typography style={{ flex: 1 }}>{t(title)}</Typography>
+      <MaterialIcons name="chevron-right" />
+    </Pressable>
   );
 }
