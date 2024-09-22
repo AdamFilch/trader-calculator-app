@@ -1,3 +1,4 @@
+import { Icon } from "@/src/components/common/CustomUI";
 import { Typography } from "@/src/components/common/Typography";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useTranslation } from "react-i18next";
@@ -145,7 +146,7 @@ function SegmentWithTrail({ title, leadIcon, children }: SettingsSegmentProps) {
 
   return (
     <View style={{ padding: 10, display: "flex", flexDirection: "row" }}>
-      <MaterialIcons name={leadIcon} color={"black"} />
+      <Icon icon={leadIcon} />
       <Typography style={{ flex: 1 }}>{t(title)}</Typography>
       {children}
     </View>
@@ -166,9 +167,9 @@ function SegmentAsPressable({
         console.log(title);
       }}
     >
-      <MaterialIcons name={"disabled-by-default"} />
+      <Icon icon={leadIcon} />
       <Typography style={{ flex: 1 }}>{t(title)}</Typography>
-      <MaterialIcons name="chevron-right" />
+      <Icon icon={"chevron-right"} />
     </Pressable>
   );
 }
