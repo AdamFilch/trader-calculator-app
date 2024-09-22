@@ -1,0 +1,16 @@
+{
+    "language": "Indonesian",
+    "settings": {
+        "Welcome": "Welcome Indonesian",
+        "Settings": "Settings",
+        "Change Theme": "Ganti Tema",
+        "Change Language": "Ganti Bahasa"
+    },
+    "average": {
+        "Stock Price": "Harge Saham",
+        "Lot Size": "Lot Size",
+        "Amount Invested: {{invested}}": "Total Investasi: {{invested}}",
+        "Cummulative Average: {{aver}}": "Cummulative Average: {{aver}}",
+        "Total Lot Size: {{total}}:": "Total Lot Size: {{total}}"
+    }
+ }

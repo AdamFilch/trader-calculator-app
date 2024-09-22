@@ -1,10 +1,13 @@
-{
-    "language": "Malay",
+ {
+    "language": "English",
     "settings": {
-        "Welcome": "Welcome Malay"
+        "Welcome": "Welcome English",
+        "Settings": "Settings",
+        "Change Theme": "Change Theme",
+        "Change Language": "Change Language"
     },
     "average": {
-        "Stock Price": "Harge Saham",
+        "Stock Price": "Stock Price",
         "Lot Size": "Lot Size",
         "Amount Invested: {{invested}}": "Amount Invested: {{invested}}",
         "Cummulative Average: {{aver}}": "Cummulative Average: {{aver}}",
