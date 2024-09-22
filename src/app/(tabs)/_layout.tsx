@@ -6,6 +6,7 @@ import DashboardPage from "./dashboard";
 import HomeScreen from ".";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import settingsPage from "./settings";
 
 export default function TabLayout() {
   const Tabs = AnimatedTabBarNavigator();
@@ -40,7 +41,7 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="explore"
-        component={TabTwoScreen}
+        component={settingsPage}
         options={{
           title: "Settings",
           tabBarIcon: ({ color, focused }: any) => (
