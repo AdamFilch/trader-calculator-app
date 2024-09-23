@@ -1,13 +1,11 @@
-import { DarkTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import "../../localization/i18n";
-
 import { useColorScheme } from "@/src/hooks/useColorScheme";
-import { traderThemeLight } from "../constants/theme";
+import { TraderThemeProvider } from "../constants/TraderThemeContext";
 
 import { Inter_600SemiBold } from "@expo-google-fonts/inter";
 
@@ -15,7 +13,6 @@ import { Inter_600SemiBold } from "@expo-google-fonts/inter";
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     Inter: Inter_600SemiBold,
   });
@@ -31,10 +28,7 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider
-      // value={colorScheme === "dark" ? DarkTheme : traderThemeLight}
-      value={traderThemeLight}
-    >
+    <TraderThemeProvider>
       <Stack
         screenOptions={
           {
@@ -45,6 +39,6 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
-    </ThemeProvider>
+    </TraderThemeProvider>
   );
 }

@@ -1,20 +1,21 @@
 import { Icon } from "@/src/components/common/CustomUI";
 import { Typography } from "@/src/components/common/Typography";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { useTheme } from "@/src/constants/TraderThemeContext";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
-  Button,
   FlatList,
+  Platform,
   Pressable,
-  SafeAreaView,
-  ScrollView,
-  SectionList,
-  Settings,
+  Switch,
+  useColorScheme,
   View,
 } from "react-native";
 
 export default function SettingsPage() {
   const { t } = useTranslation("settings");
+  const { theme, isLightMode, toggleTheme } = useTheme();
+
   const availableLanguages = [
     {
       id: "en",
@@ -38,7 +39,14 @@ export default function SettingsPage() {
     {
       leadIcon: "contrast",
       title: "Change Theme",
-      trail: <></>,
+      trail: (
+        <Switch
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={isLightMode ? "#f5dd4b" : "#f4f3f4"}
+          onValueChange={() => toggleTheme()}
+          value={isLightMode}
+        />
+      ),
     },
     {
       leadIcon: "payment",
@@ -78,17 +86,23 @@ export default function SettingsPage() {
     },
   ];
   return (
-    <SafeAreaView style={{ padding: 30 }}>
+    <View style={{ padding: 20 }}>
       <View>
         <Typography style={{ fontSize: 30 }}>{t("Settings")}</Typography>
       </View>
       <View style={{ marginTop: 20 }}>
         <Typography>{t("General")}</Typography>
         <View
-          style={{ borderWidth: 0.8, borderColor: "gray", borderRadius: 15 }}
+          style={{
+            borderWidth: 0.8,
+            borderColor: "gray",
+            borderRadius: 15,
+            padding: 10,
+          }}
         >
           <FlatList
             data={generalSegm}
+            scrollEnabled={false}
             renderItem={({ item }) => (
               <SegmentWithTrail title={item.title} leadIcon={item.leadIcon}>
                 {item.trail}
@@ -100,9 +114,15 @@ export default function SettingsPage() {
       <View>
         <Typography>{t("About App")}</Typography>
         <View
-          style={{ borderWidth: 0.8, borderColor: "gray", borderRadius: 15 }}
+          style={{
+            borderWidth: 0.8,
+            borderColor: "gray",
+            borderRadius: 15,
+            padding: 10,
+          }}
         >
           <FlatList
+            scrollEnabled={false}
             data={aboutUsSegm}
             renderItem={({ item }) => (
               <SegmentAsPressable
@@ -117,9 +137,15 @@ export default function SettingsPage() {
       <View>
         <Typography>{t("More")}</Typography>
         <View
-          style={{ borderWidth: 0.8, borderColor: "gray", borderRadius: 15 }}
+          style={{
+            borderWidth: 0.8,
+            borderColor: "gray",
+            borderRadius: 15,
+            padding: 10,
+          }}
         >
           <FlatList
+            scrollEnabled={false}
             data={moreSegm}
             renderItem={({ item }) => (
               <SegmentAsPressable
@@ -131,7 +157,7 @@ export default function SettingsPage() {
           />
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -145,9 +171,17 @@ function SegmentWithTrail({ title, leadIcon, children }: SettingsSegmentProps) {
   const { t } = useTranslation("settings");
 
   return (
-    <View style={{ padding: 10, display: "flex", flexDirection: "row" }}>
+    <View
+      style={{
+        paddingHorizontal: 10,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        paddingVertical: Platform.OS ? 15 : 0,
+      }}
+    >
       <Icon icon={leadIcon} />
-      <Typography style={{ flex: 1, marginLeft: 10 }}>{t(title)}</Typography>
+      <Typography style={{ flex: 1, marginLeft: 15 }}>{t(title)}</Typography>
       {children}
     </View>
   );
@@ -162,13 +196,18 @@ function SegmentAsPressable({
 
   return (
     <Pressable
-      style={{ padding: 10, display: "flex", flexDirection: "row" }}
+      style={{
+        paddingHorizontal: 10,
+        paddingVertical: 15,
+        display: "flex",
+        flexDirection: "row",
+      }}
       onPress={() => {
         console.log(title);
       }}
     >
       <Icon icon={leadIcon} />
-      <Typography style={{ flex: 1, marginLeft: 10 }}>{t(title)}</Typography>
+      <Typography style={{ flex: 1, marginLeft: 15 }}>{t(title)}</Typography>
       <Icon icon={"chevron-right"} />
     </Pressable>
   );
