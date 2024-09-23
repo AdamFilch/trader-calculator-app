@@ -1,20 +1,12 @@
 import { Icon } from "@/src/components/common/CustomUI";
 import { Typography } from "@/src/components/common/Typography";
 import { useTheme } from "@/src/constants/TraderThemeContext";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  FlatList,
-  Platform,
-  Pressable,
-  Switch,
-  useColorScheme,
-  View,
-} from "react-native";
+import { FlatList, Platform, Pressable, Switch, View } from "react-native";
 
 export default function SettingsPage() {
   const { t } = useTranslation("settings");
-  const { theme, isLightMode, toggleTheme } = useTheme();
+  const { isLightMode, toggleTheme } = useTheme();
 
   const availableLanguages = [
     {
@@ -43,8 +35,10 @@ export default function SettingsPage() {
         <Switch
           trackColor={{ false: "#767577", true: "#81b0ff" }}
           thumbColor={isLightMode ? "#f5dd4b" : "#f4f3f4"}
-          onValueChange={() => toggleTheme()}
-          value={isLightMode}
+          onValueChange={() => {
+            toggleTheme();
+          }}
+          value={!isLightMode}
         />
       ),
     },

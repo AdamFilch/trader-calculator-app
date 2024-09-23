@@ -1,6 +1,6 @@
 import { DarkTheme, DefaultTheme, Theme } from "@react-navigation/native";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
-import { useColorScheme } from "react-native";
+import { Appearance, useColorScheme } from "react-native";
 
 const WEB_FONT_STACK =
   'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
@@ -83,6 +83,7 @@ export const TraderThemeProvider = ({ children }: PropsWithChildren) => {
 
   const toggleTheme = () => {
     setisLightMode(!isLightMode);
+    Appearance.setColorScheme(isLightMode ? "light" : "dark");
   };
 
   const theme = isLightMode ? traderThemeLight : traderThemeDark;
