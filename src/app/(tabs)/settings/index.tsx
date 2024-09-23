@@ -6,6 +6,7 @@ import {
   Button,
   FlatList,
   Pressable,
+  SafeAreaView,
   ScrollView,
   SectionList,
   Settings,
@@ -78,7 +79,7 @@ export default function SettingsPage() {
     },
   ];
   return (
-    <ScrollView style={{ padding: 30 }}>
+    <SafeAreaView style={{ padding: 30 }}>
       <View>
         <Typography style={{ fontSize: 30 }}>{t("Settings")}</Typography>
       </View>
@@ -131,7 +132,7 @@ export default function SettingsPage() {
           />
         </View>
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 }
 
