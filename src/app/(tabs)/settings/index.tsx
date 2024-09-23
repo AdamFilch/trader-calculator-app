@@ -29,20 +29,19 @@ export default function SettingsPage() {
       lang: "Bahasa Melayu",
     },
   ];
-
   const generalSegm = [
     {
-      leadIcon: "home",
+      leadIcon: "language",
       title: "Change Language",
       trail: <></>,
     },
     {
-      leadIcon: "",
+      leadIcon: "contrast",
       title: "Change Theme",
       trail: <></>,
     },
     {
-      leadIcon: "",
+      leadIcon: "payment",
       title: "Change Currency",
       trail: <></>,
     },
@@ -50,12 +49,12 @@ export default function SettingsPage() {
 
   const aboutUsSegm = [
     {
-      leadIcon: "home",
+      leadIcon: "verified-user",
       title: "Privacy Policy",
       redirect: "",
     },
     {
-      leadIcon: "",
+      leadIcon: "badge",
       title: "About Developer",
       redirect: "",
     },
@@ -63,17 +62,17 @@ export default function SettingsPage() {
 
   const moreSegm = [
     {
-      leadIcon: "",
+      leadIcon: "star",
       title: "Rate my App",
       redirect: "",
     },
     {
-      leadIcon: "",
+      leadIcon: "flag",
       title: "Report a Problem ",
       redirect: "",
     },
     {
-      leadIcon: "",
+      leadIcon: "build",
       title: "Suggest an Imporvement",
       redirect: "",
     },
@@ -148,7 +147,7 @@ function SegmentWithTrail({ title, leadIcon, children }: SettingsSegmentProps) {
   return (
     <View style={{ padding: 10, display: "flex", flexDirection: "row" }}>
       <Icon icon={leadIcon} />
-      <Typography style={{ flex: 1 }}>{t(title)}</Typography>
+      <Typography style={{ flex: 1, marginLeft: 10 }}>{t(title)}</Typography>
       {children}
     </View>
   );
@@ -169,7 +168,7 @@ function SegmentAsPressable({
       }}
     >
       <Icon icon={leadIcon} />
-      <Typography style={{ flex: 1 }}>{t(title)}</Typography>
+      <Typography style={{ flex: 1, marginLeft: 10 }}>{t(title)}</Typography>
       <Icon icon={"chevron-right"} />
     </Pressable>
   );
