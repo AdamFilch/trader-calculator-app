@@ -1,49 +1,102 @@
 import { Icon } from "@/src/components/common/CustomUI";
 import { Typography } from "@/src/components/common/Typography";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { useTheme } from "@/src/constants/TraderThemeContext";
 import { useTranslation } from "react-i18next";
+import { FlatList, Platform, Pressable, Switch, View } from "react-native";
+import { Picker } from "@react-native-picker/picker";
+import { useState } from "react";
 import {
-  Button,
-  FlatList,
-  Pressable,
-  SafeAreaView,
-  ScrollView,
-  SectionList,
-  Settings,
-  View,
-} from "react-native";
+  availableCurrency,
+  availableLanguages,
+} from "@/src/constants/Settings";
 
 export default function SettingsPage() {
   const { t } = useTranslation("settings");
-  const availableLanguages = [
-    {
-      id: "en",
-      lang: "English",
-    },
-    {
-      id: "id",
-      lang: "Bahasa Indonesia",
-    },
-    {
-      id: "ms",
-      lang: "Bahasa Melayu",
-    },
-  ];
+  const { isLightMode, toggleTheme } = useTheme();
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const [selectedCurrency, setSelectedCurrency] = useState("rupiah");
+
   const generalSegm = [
-    {
-      leadIcon: "language",
-      title: "Change Language",
-      trail: <></>,
-    },
     {
       leadIcon: "contrast",
       title: "Change Theme",
-      trail: <></>,
+      trail: (
+        <Switch
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={isLightMode ? "#f5dd4b" : "#f4f3f4"}
+          onValueChange={() => {
+            toggleTheme();
+          }}
+          value={!isLightMode}
+        />
+      ),
     },
+    {
+      leadIcon: "language",
+      title: "Change Language",
+      trail: (
+        <View
+          style={{
+            borderWidth: 1,
+            borderColor: "grey",
+            borderRadius: 4,
+          }}
+        >
+          <Picker
+            style={{
+              width: 100,
+              textAlign: "right",
+            }}
+            mode="dropdown"
+            selectedValue={selectedLanguage}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedLanguage(itemValue)
+            }
+          >
+            {Object.values(availableLanguages).map((language) => {
+              return (
+                <Picker.Item
+                  key={language.id}
+                  label={language.name}
+                  value={language.id}
+                />
+              );
+            })}
+          </Picker>
+        </View>
+      ),
+    },
+
     {
       leadIcon: "payment",
       title: "Change Currency",
-      trail: <></>,
+      trail: (
+        <View
+          style={{
+            borderWidth: 1,
+            borderColor: "grey",
+            borderRadius: 4,
+          }}
+        >
+          <Picker
+            style={{
+              width: 100,
+              textAlign: "right",
+            }}
+            mode="dropdown"
+            selectedValue={selectedCurrency}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedCurrency(itemValue)
+            }
+          >
+            {Object.entries(availableCurrency).map(([key, currency]) => {
+              return (
+                <Picker.Item key={key} label={currency.name} value={key} />
+              );
+            })}
+          </Picker>
+        </View>
+      ),
     },
   ];
 
@@ -78,17 +131,23 @@ export default function SettingsPage() {
     },
   ];
   return (
-    <SafeAreaView style={{ padding: 30 }}>
+    <View style={{ padding: 20 }}>
       <View>
         <Typography style={{ fontSize: 30 }}>{t("Settings")}</Typography>
       </View>
       <View style={{ marginTop: 20 }}>
         <Typography>{t("General")}</Typography>
         <View
-          style={{ borderWidth: 0.8, borderColor: "gray", borderRadius: 15 }}
+          style={{
+            borderWidth: 0.8,
+            borderColor: "gray",
+            borderRadius: 15,
+            padding: 10,
+          }}
         >
           <FlatList
             data={generalSegm}
+            scrollEnabled={false}
             renderItem={({ item }) => (
               <SegmentWithTrail title={item.title} leadIcon={item.leadIcon}>
                 {item.trail}
@@ -100,9 +159,15 @@ export default function SettingsPage() {
       <View>
         <Typography>{t("About App")}</Typography>
         <View
-          style={{ borderWidth: 0.8, borderColor: "gray", borderRadius: 15 }}
+          style={{
+            borderWidth: 0.8,
+            borderColor: "gray",
+            borderRadius: 15,
+            padding: 10,
+          }}
         >
           <FlatList
+            scrollEnabled={false}
             data={aboutUsSegm}
             renderItem={({ item }) => (
               <SegmentAsPressable
@@ -117,9 +182,15 @@ export default function SettingsPage() {
       <View>
         <Typography>{t("More")}</Typography>
         <View
-          style={{ borderWidth: 0.8, borderColor: "gray", borderRadius: 15 }}
+          style={{
+            borderWidth: 0.8,
+            borderColor: "gray",
+            borderRadius: 15,
+            padding: 10,
+          }}
         >
           <FlatList
+            scrollEnabled={false}
             data={moreSegm}
             renderItem={({ item }) => (
               <SegmentAsPressable
@@ -131,7 +202,7 @@ export default function SettingsPage() {
           />
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -145,9 +216,17 @@ function SegmentWithTrail({ title, leadIcon, children }: SettingsSegmentProps) {
   const { t } = useTranslation("settings");
 
   return (
-    <View style={{ padding: 10, display: "flex", flexDirection: "row" }}>
+    <View
+      style={{
+        paddingHorizontal: 10,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        paddingVertical: Platform.OS ? 5 : 0,
+      }}
+    >
       <Icon icon={leadIcon} />
-      <Typography style={{ flex: 1, marginLeft: 10 }}>{t(title)}</Typography>
+      <Typography style={{ flex: 1, marginLeft: 15 }}>{t(title)}</Typography>
       {children}
     </View>
   );
@@ -162,13 +241,18 @@ function SegmentAsPressable({
 
   return (
     <Pressable
-      style={{ padding: 10, display: "flex", flexDirection: "row" }}
+      style={{
+        paddingHorizontal: 10,
+        paddingVertical: 15,
+        display: "flex",
+        flexDirection: "row",
+      }}
       onPress={() => {
         console.log(title);
       }}
     >
       <Icon icon={leadIcon} />
-      <Typography style={{ flex: 1, marginLeft: 10 }}>{t(title)}</Typography>
+      <Typography style={{ flex: 1, marginLeft: 15 }}>{t(title)}</Typography>
       <Icon icon={"chevron-right"} />
     </Pressable>
   );
