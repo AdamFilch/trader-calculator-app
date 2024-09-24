@@ -1,12 +1,15 @@
 import React from "react";
 
-import { AnimatedTabBarNavigator } from "react-native-animated-nav-tab-bar";
-import TabTwoScreen from "./explore";
+import {
+  AnimatedTabBarNavigator,
+  DotSize,
+  TabButtonLayout,
+} from "react-native-animated-nav-tab-bar";
 import DashboardPage from "./dashboard";
 import HomeScreen from ".";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import settingsPage from "./settings";
+import DiaryPage from "./diary";
+import { Icon } from "@/src/components/common/CustomUI";
 
 export default function TabLayout() {
   const Tabs = AnimatedTabBarNavigator();
@@ -16,8 +19,16 @@ export default function TabLayout() {
       tabBarOptions={{
         activeTintColor: "#000000",
         inactiveTintColor: "#FFF",
+        labelStyle: "none",
       }}
-      appearance={{ tabBarBackground: "white" }}
+      appearance={{
+        tabBarBackground: "white",
+        dotCornerRadius: 10,
+        tabButtonLayout: "vertical" as TabButtonLayout,
+        dotSize: "small" as DotSize,
+        topPadding: 5,
+        bottomPadding: 5,
+      }}
     >
       <Tabs.Screen
         name="index"
@@ -25,7 +36,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color, focused }: any) => (
-            <MaterialCommunityIcons name="home-variant-outline" size={20} />
+            <Icon community icon="home-variant-outline" size="large" />
           ),
         }}
       />
@@ -35,7 +46,17 @@ export default function TabLayout() {
         options={{
           title: "Search",
           tabBarIcon: ({ color, focused }: any) => (
-            <MaterialIcons name="search" size={20} />
+            <Icon icon={"search"} size="large" />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="diary"
+        component={DiaryPage}
+        options={{
+          title: "Diary",
+          tabBarIcon: ({ color, focused }: any) => (
+            <Icon community icon={"book-outline"} size="large" />
           ),
         }}
       />
@@ -45,7 +66,7 @@ export default function TabLayout() {
         options={{
           title: "Settings",
           tabBarIcon: ({ color, focused }: any) => (
-            <MaterialIcons name="settings" size={20} />
+            <Icon icon={"settings"} size="large" />
           ),
         }}
       />
