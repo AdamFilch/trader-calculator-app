@@ -3,31 +3,20 @@ import { Typography } from "@/src/components/common/Typography";
 import { useTheme } from "@/src/constants/TraderThemeContext";
 import { useTranslation } from "react-i18next";
 import { FlatList, Platform, Pressable, Switch, View } from "react-native";
+import { Picker } from "@react-native-picker/picker";
+import { useState } from "react";
+import {
+  availableCurrency,
+  availableLanguages,
+} from "@/src/constants/Settings";
 
 export default function SettingsPage() {
   const { t } = useTranslation("settings");
   const { isLightMode, toggleTheme } = useTheme();
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const [selectedCurrency, setSelectedCurrency] = useState("rupiah");
 
-  const availableLanguages = [
-    {
-      id: "en",
-      lang: "English",
-    },
-    {
-      id: "id",
-      lang: "Bahasa Indonesia",
-    },
-    {
-      id: "ms",
-      lang: "Bahasa Melayu",
-    },
-  ];
   const generalSegm = [
-    {
-      leadIcon: "language",
-      title: "Change Language",
-      trail: <></>,
-    },
     {
       leadIcon: "contrast",
       title: "Change Theme",
@@ -43,9 +32,71 @@ export default function SettingsPage() {
       ),
     },
     {
+      leadIcon: "language",
+      title: "Change Language",
+      trail: (
+        <View
+          style={{
+            borderWidth: 1,
+            borderColor: "grey",
+            borderRadius: 4,
+          }}
+        >
+          <Picker
+            style={{
+              width: 100,
+              textAlign: "right",
+            }}
+            mode="dropdown"
+            selectedValue={selectedLanguage}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedLanguage(itemValue)
+            }
+          >
+            {Object.values(availableLanguages).map((language) => {
+              return (
+                <Picker.Item
+                  key={language.id}
+                  label={language.name}
+                  value={language.id}
+                />
+              );
+            })}
+          </Picker>
+        </View>
+      ),
+    },
+
+    {
       leadIcon: "payment",
       title: "Change Currency",
-      trail: <></>,
+      trail: (
+        <View
+          style={{
+            borderWidth: 1,
+            borderColor: "grey",
+            borderRadius: 4,
+          }}
+        >
+          <Picker
+            style={{
+              width: 100,
+              textAlign: "right",
+            }}
+            mode="dropdown"
+            selectedValue={selectedCurrency}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedCurrency(itemValue)
+            }
+          >
+            {Object.entries(availableCurrency).map(([key, currency]) => {
+              return (
+                <Picker.Item key={key} label={currency.name} value={key} />
+              );
+            })}
+          </Picker>
+        </View>
+      ),
     },
   ];
 
@@ -171,7 +222,7 @@ function SegmentWithTrail({ title, leadIcon, children }: SettingsSegmentProps) {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        paddingVertical: Platform.OS ? 15 : 0,
+        paddingVertical: Platform.OS ? 5 : 0,
       }}
     >
       <Icon icon={leadIcon} />
