@@ -10,7 +10,7 @@ export default function DashboardPage({}) {
       link: "average",
     },
     {
-      label: "Profit/Lost",
+      label: "Profit/Loss",
       caption: "Calculate returns of trades made",
       link: "profit-loss",
     },
