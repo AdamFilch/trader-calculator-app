@@ -11,7 +11,7 @@ import {
 } from "@/src/constants/Settings";
 
 export default function SettingsPage() {
-  const { t } = useTranslation("settings");
+  const { t, i18n } = useTranslation("settings");
   const { isLightMode, toggleTheme } = useTheme();
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [selectedCurrency, setSelectedCurrency] = useState("rupiah");
@@ -49,9 +49,10 @@ export default function SettingsPage() {
             }}
             mode="dropdown"
             selectedValue={selectedLanguage}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedLanguage(itemValue)
-            }
+            onValueChange={(itemValue, itemIndex) => {
+              setSelectedLanguage(itemValue);
+              i18n.changeLanguage(itemValue);
+            }}
           >
             {Object.values(availableLanguages).map((language) => {
               return (
