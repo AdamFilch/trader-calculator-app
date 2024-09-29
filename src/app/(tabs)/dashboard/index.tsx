@@ -1,6 +1,7 @@
 import { ScrollView, View } from "react-native";
 import { ClockDisplay } from "@/src/components/dashboard/clock-display";
 import DashboardCalculator from "@/src/components/dashboard/calculator";
+import DashboardDiarySummary from "@/src/components/dashboard/diary/summary";
 
 export default function DashboardPage({}) {
   return (
@@ -35,6 +36,7 @@ export default function DashboardPage({}) {
       </View>
 
       <DashboardCalculator />
+      <DashboardDiarySummary />
     </ScrollView>
   );
 }
