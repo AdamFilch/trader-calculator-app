@@ -1,6 +1,6 @@
 import { Pressable, View } from "react-native";
-import { Divider } from "../common/CustomUI";
-import { Typography } from "../common/Typography";
+import { Divider } from "../../common/CustomUI";
+import { Typography } from "../../common/Typography";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Href, useRouter } from "expo-router";
 
@@ -11,7 +11,7 @@ type DashFuncProps = {
   link: string;
 };
 
-export default function DashFunctionBtns({
+export default function CalculatorButton({
   label,
   children,
   caption,

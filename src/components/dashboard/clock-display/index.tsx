@@ -8,7 +8,7 @@ export function ClockDisplay() {
       style={{
         height: 300,
         backgroundColor: "#DFE4EA",
-        flex: 3,
+        flex: 2,
         borderRadius: 10,
         alignItems: "center",
         justifyContent: "flex-end",

@@ -1,31 +1,8 @@
 import { ScrollView, View } from "react-native";
-import DashFunctionBtns from "@/src/components/dashboard/buttons";
 import { ClockDisplay } from "@/src/components/dashboard/clock-display";
+import DashboardCalculator from "@/src/components/dashboard/calculator";
 
 export default function DashboardPage({}) {
-  const calcFuncs = [
-    {
-      label: "Averaging",
-      caption: "Ex. Average Down, Dollar Cost Averaging",
-      link: "average",
-    },
-    {
-      label: "Profit/Loss",
-      caption: "Calculate returns of trades made",
-      link: "profit-loss",
-    },
-    {
-      label: "Fixed Income Returns",
-      caption: "Estimate Fixed Income Bonds",
-      link: "projection/fixed-income",
-    },
-    {
-      label: "Compounding Interest",
-      caption: "Estimate Compounding Interest",
-      link: "projection/compounding",
-    },
-  ];
-
   return (
     <ScrollView
       style={{
@@ -54,28 +31,10 @@ export default function DashboardPage({}) {
             }}
           ></View>
         </View>
-        <View style={{ flexDirection: "row", gap: 10 }}>
-          <View
-            style={{
-              height: 100,
-              backgroundColor: "#DFE4EA",
-              flex: 2,
-              borderRadius: 10,
-            }}
-          ></View>
-        </View>
+        <View style={{ flexDirection: "row", gap: 10 }}></View>
       </View>
 
-      <View id="Calculator" style={{ marginTop: 8, gap: 6 }}>
-        {calcFuncs.map((calc, id) => (
-          <DashFunctionBtns
-            key={id}
-            label={calc.label}
-            caption={calc.caption}
-            link={calc.link}
-          />
-        ))}
-      </View>
+      <DashboardCalculator />
     </ScrollView>
   );
 }
