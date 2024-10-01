@@ -1,0 +1,67 @@
+------------------------------ USER_T ------------------------------
+CREATE TABLE USER_T (
+    user_id_pk CHAR(6) NOT NULL
+    trading_report_id_fk CHAR(6) NOT NULL
+    PRIMARY KEY (user_id_pk)
+    FOREIGN KEY (report_id_fk)
+
+    has many TRADING_REPORT_T
+)
+
+------------------------------ TRADING_REPORT_T ------------------------------
+CREATE TABLE TRADING_REPORT_T (
+    report_id_pk CHAR(6) NOT NULL AUTOINCREMENT
+    report_name VARCHAR(30) NOT NULL 
+    report_date_created DATETIME NOT NULL
+    report_primary_currency VARCHAR(6)
+
+    PRIMARY KEY (report_id_pk)
+
+    has one REPORT_SUMMARY_T
+    has many TRADE_T
+)
+
+------------------------------ REPORT_SUMMARY_T ------------------------------
+CREATE TABLE REPORT_SUMMARY_T (
+    repsum_id_pk 
+    repsum_start_date
+    repsum_end_date
+    repsum_total_earn
+    repsum_total_trades
+    repsum_total_winrate
+    repsum_wins
+    repsum_losses
+    PRIMARY KEY (repsum_id_pk)
+)
+
+
+------------------------------ TRADE_T ------------------------------
+CREATE TABLE TRADE_T (
+    trade_id_pk CHAR(6) NOT NULL AUTOINCREMENT
+    trade_invested VARCHAR(15) NOT NULL
+    trade_profit VARCHAR(15) 
+    trade_realised VARCHAR(15) 
+    trade_plus_minus VARCHAR(6) 
+    trade_bought_for VARCHAR(15) NOT NULL
+    trade_sold_for VARCHAR(15)
+    trade_lot_size VARCHAR(15) NOT NULL
+    trade_date_bought DATETIME NOT NULL
+    trade_date_sold DATETIME 
+    trade_earn_per_day VARCHAR(15)
+    trade_stock_code VARCHAR(10) NOT NULL
+
+    PRIMARY KEY (trade_id_pk)
+
+
+
+    has one TRANSACTION_FEE_T
+)
+
+
+------------------------------ TRANSACTION_FEE_T ------------------------------
+CREATE TABLE TRANSACTION_FEE_T (
+    trans_id_pk
+    trans_fee_sell VARCHAR(6) NOT NULL
+    trans_fee_buy VARCHAR(6) NOT NULL
+    PRIMARY KEY (trans_id_pk)
+)
