@@ -12,7 +12,7 @@ export default function DashboardDiarySummary() {
         margin: 15,
       }}
     >
-      ' '<Typography>Trading Summary</Typography>
+      <Typography>Trading Summary</Typography>
       <Typography>Currently Holding</Typography>
       <Typography>Most Recent Trades</Typography>
     </View>
