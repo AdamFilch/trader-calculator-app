@@ -1,6 +1,7 @@
 Your relational database schema is a great start for managing trading reports, but there are a few adjustments and recommendations I’d make to ensure it’s structured properly and handles key relational aspects more effectively.
 
 ### 1. **`USER_T` Table**
+
 ```sql
 CREATE TABLE USER_T (
     user_id_pk CHAR(6) NOT NULL,
@@ -11,11 +12,13 @@ CREATE TABLE USER_T (
 ```
 
 #### Recommendations:
+
 - **Foreign Key**: Ensure the `trading_report_id_fk` references the correct column in `TRADING_REPORT_T`. You may also want to allow a user to have multiple trading reports (one-to-many relationship).
 - **Naming Convention**: Consider renaming `trading_report_id_fk` to `report_id_fk` for consistency with the other tables and naming convention.
 - **One-to-Many Relationship**: Since a user can have multiple reports, it's better to remove the `trading_report_id_fk` from `USER_T` and instead add `user_id_fk` in the `TRADING_REPORT_T` table.
 
 ### Updated `USER_T`:
+
 ```sql
 CREATE TABLE USER_T (
     user_id_pk CHAR(6) NOT NULL,
@@ -24,6 +27,7 @@ CREATE TABLE USER_T (
 ```
 
 ### 2. **`TRADING_REPORT_T` Table**
+
 ```sql
 CREATE TABLE TRADING_REPORT_T (
     report_id_pk CHAR(6) NOT NULL AUTOINCREMENT,
@@ -37,11 +41,13 @@ CREATE TABLE TRADING_REPORT_T (
 ```
 
 #### Recommendations:
+
 - **AUTOINCREMENT**: SQLite requires `INTEGER` for auto-incrementing. Change `CHAR(6)` to `INTEGER` for the primary key if you want auto-increment behavior.
 - **Foreign Key**: Add `user_id_fk` to establish the one-to-many relationship between `USER_T` and `TRADING_REPORT_T`.
 - **Ensure Consistency**: Ensure `report_primary_currency` can store enough data for currencies (consider using `CHAR(3)` instead, as currency codes are typically 3 characters like "USD").
 
 ### Updated `TRADING_REPORT_T`:
+
 ```sql
 CREATE TABLE TRADING_REPORT_T (
     report_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -54,6 +60,7 @@ CREATE TABLE TRADING_REPORT_T (
 ```
 
 ### 3. **`REPORT_SUMMARY_T` Table**
+
 ```sql
 CREATE TABLE REPORT_SUMMARY_T (
     repsum_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -70,11 +77,13 @@ CREATE TABLE REPORT_SUMMARY_T (
 ```
 
 #### Recommendations:
+
 - **Data Types**: Specify appropriate types (e.g., `DECIMAL` for earnings and percentages).
 - **Foreign Key**: Add a foreign key linking this table to `TRADING_REPORT_T`.
 - **Nullability**: Ensure non-null columns for values that should always exist (e.g., total earnings or trades).
 
 ### Updated `REPORT_SUMMARY_T`:
+
 ```sql
 CREATE TABLE REPORT_SUMMARY_T (
     repsum_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -91,6 +100,7 @@ CREATE TABLE REPORT_SUMMARY_T (
 ```
 
 ### 4. **`TRADE_T` Table**
+
 ```sql
 CREATE TABLE TRADE_T (
     trade_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -111,10 +121,12 @@ CREATE TABLE TRADE_T (
 ```
 
 #### Recommendations:
+
 - **Data Types**: Use `DECIMAL` for financial data to handle currencies and avoid rounding issues.
 - **Foreign Key**: Link each trade to its respective trading report via `report_id_fk`.
 
 ### Updated `TRADE_T`:
+
 ```sql
 CREATE TABLE TRADE_T (
     trade_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -135,6 +147,7 @@ CREATE TABLE TRADE_T (
 ```
 
 ### 5. **`TRANSACTION_FEE_T` Table**
+
 ```sql
 CREATE TABLE TRANSACTION_FEE_T (
     trans_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -146,10 +159,12 @@ CREATE TABLE TRANSACTION_FEE_T (
 ```
 
 #### Recommendations:
+
 - **Foreign Key**: Ensure that each transaction fee is linked to a trade via `trade_id_fk`.
 - **Data Type**: Use `DECIMAL` for the fees to handle currency values.
 
 ### Updated `TRANSACTION_FEE_T`:
+
 ```sql
 CREATE TABLE TRANSACTION_FEE_T (
     trans_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -163,6 +178,7 @@ CREATE TABLE TRANSACTION_FEE_T (
 ---
 
 ### Additional Suggestions:
+
 1. **Consistent Primary Key Types**: If you want to maintain consistency across tables, consider using `INTEGER` with `AUTOINCREMENT` for primary keys across all tables, or you can switch to UUIDs (e.g., `CHAR(36)`) if you prefer non-numeric keys.
 2. **Indexes**: Consider adding indexes on columns that will be frequently queried, like `user_id_fk`, `report_id_fk`, or `trade_stock_code`, to speed up query performance.
 3. **Data Constraints**: You can also add constraints like `CHECK` to enforce business rules (e.g., ensuring that `trade_profit` is always greater than or equal to `0`).
