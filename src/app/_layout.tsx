@@ -8,6 +8,8 @@ import { useColorScheme } from "@/src/hooks/useColorScheme";
 import { TraderThemeProvider } from "../constants/TraderThemeContext";
 
 import { Inter_600SemiBold } from "@expo-google-fonts/inter";
+import { SQLiteProvider } from "expo-sqlite";
+import { dbName, initDatabase } from "@/backend/scripts/sqlite";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -28,17 +30,23 @@ export default function RootLayout() {
   }
 
   return (
-    <TraderThemeProvider>
-      <Stack
-        screenOptions={
-          {
-            // headerShown: false,
+    <SQLiteProvider
+      databaseName={dbName}
+      assetSource={{ assetId: require("../../assets/trader_diary_db.db") }}
+      onInit={initDatabase}
+    >
+      <TraderThemeProvider>
+        <Stack
+          screenOptions={
+            {
+              // headerShown: false,
+            }
           }
-        }
-      >
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </TraderThemeProvider>
+        >
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </TraderThemeProvider>
+    </SQLiteProvider>
   );
 }

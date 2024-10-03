@@ -1,0 +1,187 @@
+Your relational database schema is a great start for managing trading reports, but there are a few adjustments and recommendations I’d make to ensure it’s structured properly and handles key relational aspects more effectively.
+
+### 1. **`USER_T` Table**
+
+```sql
+CREATE TABLE USER_T (
+    user_id_pk CHAR(6) NOT NULL,
+    trading_report_id_fk CHAR(6) NOT NULL,
+    PRIMARY KEY (user_id_pk),
+    FOREIGN KEY (trading_report_id_fk) REFERENCES TRADING_REPORT_T(report_id_pk)
+);
+```
+
+#### Recommendations:
+
+- **Foreign Key**: Ensure the `trading_report_id_fk` references the correct column in `TRADING_REPORT_T`. You may also want to allow a user to have multiple trading reports (one-to-many relationship).
+- **Naming Convention**: Consider renaming `trading_report_id_fk` to `report_id_fk` for consistency with the other tables and naming convention.
+- **One-to-Many Relationship**: Since a user can have multiple reports, it's better to remove the `trading_report_id_fk` from `USER_T` and instead add `user_id_fk` in the `TRADING_REPORT_T` table.
+
+### Updated `USER_T`:
+
+```sql
+CREATE TABLE USER_T (
+    user_id_pk CHAR(6) NOT NULL,
+    PRIMARY KEY (user_id_pk)
+);
+```
+
+### 2. **`TRADING_REPORT_T` Table**
+
+```sql
+CREATE TABLE TRADING_REPORT_T (
+    report_id_pk CHAR(6) NOT NULL AUTOINCREMENT,
+    report_name VARCHAR(30) NOT NULL,
+    report_date_created DATETIME NOT NULL,
+    report_primary_currency VARCHAR(6),
+    user_id_fk CHAR(6) NOT NULL,
+    PRIMARY KEY (report_id_pk),
+    FOREIGN KEY (user_id_fk) REFERENCES USER_T(user_id_pk)
+);
+```
+
+#### Recommendations:
+
+- **AUTOINCREMENT**: SQLite requires `INTEGER` for auto-incrementing. Change `CHAR(6)` to `INTEGER` for the primary key if you want auto-increment behavior.
+- **Foreign Key**: Add `user_id_fk` to establish the one-to-many relationship between `USER_T` and `TRADING_REPORT_T`.
+- **Ensure Consistency**: Ensure `report_primary_currency` can store enough data for currencies (consider using `CHAR(3)` instead, as currency codes are typically 3 characters like "USD").
+
+### Updated `TRADING_REPORT_T`:
+
+```sql
+CREATE TABLE TRADING_REPORT_T (
+    report_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
+    report_name VARCHAR(30) NOT NULL,
+    report_date_created DATETIME NOT NULL,
+    report_primary_currency CHAR(3),
+    user_id_fk CHAR(6) NOT NULL,
+    FOREIGN KEY (user_id_fk) REFERENCES USER_T(user_id_pk)
+);
+```
+
+### 3. **`REPORT_SUMMARY_T` Table**
+
+```sql
+CREATE TABLE REPORT_SUMMARY_T (
+    repsum_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
+    report_id_fk INTEGER NOT NULL,
+    repsum_start_date DATETIME,
+    repsum_end_date DATETIME,
+    repsum_total_earn DECIMAL(10, 2),
+    repsum_total_trades INTEGER,
+    repsum_total_winrate DECIMAL(5, 2),
+    repsum_wins INTEGER,
+    repsum_losses INTEGER,
+    FOREIGN KEY (report_id_fk) REFERENCES TRADING_REPORT_T(report_id_pk)
+);
+```
+
+#### Recommendations:
+
+- **Data Types**: Specify appropriate types (e.g., `DECIMAL` for earnings and percentages).
+- **Foreign Key**: Add a foreign key linking this table to `TRADING_REPORT_T`.
+- **Nullability**: Ensure non-null columns for values that should always exist (e.g., total earnings or trades).
+
+### Updated `REPORT_SUMMARY_T`:
+
+```sql
+CREATE TABLE REPORT_SUMMARY_T (
+    repsum_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
+    report_id_fk INTEGER NOT NULL,
+    repsum_start_date DATETIME,
+    repsum_end_date DATETIME,
+    repsum_total_earn DECIMAL(10, 2) NOT NULL,
+    repsum_total_trades INTEGER NOT NULL,
+    repsum_total_winrate DECIMAL(5, 2) NOT NULL,
+    repsum_wins INTEGER NOT NULL,
+    repsum_losses INTEGER NOT NULL,
+    FOREIGN KEY (report_id_fk) REFERENCES TRADING_REPORT_T(report_id_pk)
+);
+```
+
+### 4. **`TRADE_T` Table**
+
+```sql
+CREATE TABLE TRADE_T (
+    trade_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
+    trade_invested DECIMAL(15, 2) NOT NULL,
+    trade_profit DECIMAL(15, 2),
+    trade_realised DECIMAL(15, 2),
+    trade_plus_minus CHAR(6),
+    trade_bought_for DECIMAL(15, 2) NOT NULL,
+    trade_sold_for DECIMAL(15, 2),
+    trade_lot_size DECIMAL(15, 2) NOT NULL,
+    trade_date_bought DATETIME NOT NULL,
+    trade_date_sold DATETIME,
+    trade_earn_per_day DECIMAL(15, 2),
+    trade_stock_code VARCHAR(10) NOT NULL,
+    report_id_fk INTEGER NOT NULL,
+    FOREIGN KEY (report_id_fk) REFERENCES TRADING_REPORT_T(report_id_pk)
+);
+```
+
+#### Recommendations:
+
+- **Data Types**: Use `DECIMAL` for financial data to handle currencies and avoid rounding issues.
+- **Foreign Key**: Link each trade to its respective trading report via `report_id_fk`.
+
+### Updated `TRADE_T`:
+
+```sql
+CREATE TABLE TRADE_T (
+    trade_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
+    trade_invested DECIMAL(15, 2) NOT NULL,
+    trade_profit DECIMAL(15, 2),
+    trade_realised DECIMAL(15, 2),
+    trade_plus_minus CHAR(6),
+    trade_bought_for DECIMAL(15, 2) NOT NULL,
+    trade_sold_for DECIMAL(15, 2),
+    trade_lot_size DECIMAL(15, 2) NOT NULL,
+    trade_date_bought DATETIME NOT NULL,
+    trade_date_sold DATETIME,
+    trade_earn_per_day DECIMAL(15, 2),
+    trade_stock_code VARCHAR(10) NOT NULL,
+    report_id_fk INTEGER NOT NULL,
+    FOREIGN KEY (report_id_fk) REFERENCES TRADING_REPORT_T(report_id_pk)
+);
+```
+
+### 5. **`TRANSACTION_FEE_T` Table**
+
+```sql
+CREATE TABLE TRANSACTION_FEE_T (
+    trans_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
+    trade_id_fk INTEGER NOT NULL,
+    trans_fee_sell DECIMAL(6, 2) NOT NULL,
+    trans_fee_buy DECIMAL(6, 2) NOT NULL,
+    FOREIGN KEY (trade_id_fk) REFERENCES TRADE_T(trade_id_pk)
+);
+```
+
+#### Recommendations:
+
+- **Foreign Key**: Ensure that each transaction fee is linked to a trade via `trade_id_fk`.
+- **Data Type**: Use `DECIMAL` for the fees to handle currency values.
+
+### Updated `TRANSACTION_FEE_T`:
+
+```sql
+CREATE TABLE TRANSACTION_FEE_T (
+    trans_id_pk INTEGER PRIMARY KEY AUTOINCREMENT,
+    trade_id_fk INTEGER NOT NULL,
+    trans_fee_sell DECIMAL(6, 2) NOT NULL,
+    trans_fee_buy DECIMAL(6, 2) NOT NULL,
+    FOREIGN KEY (trade_id_fk) REFERENCES TRADE_T(trade_id_pk)
+);
+```
+
+---
+
+### Additional Suggestions:
+
+1. **Consistent Primary Key Types**: If you want to maintain consistency across tables, consider using `INTEGER` with `AUTOINCREMENT` for primary keys across all tables, or you can switch to UUIDs (e.g., `CHAR(36)`) if you prefer non-numeric keys.
+2. **Indexes**: Consider adding indexes on columns that will be frequently queried, like `user_id_fk`, `report_id_fk`, or `trade_stock_code`, to speed up query performance.
+3. **Data Constraints**: You can also add constraints like `CHECK` to enforce business rules (e.g., ensuring that `trade_profit` is always greater than or equal to `0`).
+4. **Default Values**: For certain columns like `trade_date_sold`, you might want to define default values (e.g., `NULL` for dates not yet sold).
+
+This should improve the integrity, performance, and flexibility of your schema.
