@@ -3,7 +3,6 @@ import { Typography } from "@/src/components/common/Typography";
 import { useTheme } from "@/src/constants/TraderThemeContext";
 import { useTranslation } from "react-i18next";
 import { FlatList, Platform, Pressable, Switch, View } from "react-native";
-import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import {
   availableCurrency,
@@ -42,7 +41,7 @@ export default function SettingsPage() {
             borderRadius: 4,
           }}
         >
-          <Picker
+          {/* <Picker
             style={{
               width: 100,
               textAlign: "right",
@@ -63,7 +62,7 @@ export default function SettingsPage() {
                 />
               );
             })}
-          </Picker>
+          </Picker> */}
         </View>
       ),
     },
@@ -79,7 +78,7 @@ export default function SettingsPage() {
             borderRadius: 4,
           }}
         >
-          <Picker
+          {/* <Picker
             style={{
               width: 100,
               textAlign: "right",
@@ -95,7 +94,7 @@ export default function SettingsPage() {
                 <Picker.Item key={key} label={currency.name} value={key} />
               );
             })}
-          </Picker>
+          </Picker> */}
         </View>
       ),
     },

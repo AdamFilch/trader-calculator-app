@@ -21,7 +21,7 @@ export function Typography({ style, variant, ...props }: TypographyProps) {
   return (
     <Text
       style={[
-        { fontFamily: "Inter" },
+        // { fontFamily: "Inter" },
         // { color },
         variant === "default" ? styles.default : undefined,
         variant === "title" ? styles.title : undefined,
