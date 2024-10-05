@@ -15,12 +15,44 @@ export function DiaryBody() {
   return (
     <VStack>
       <DiarySummary />
-      <MyTrades />
+      <MyCurrentTrades />
+      <MyPreviousTrades />
     </VStack>
   );
 }
 
-export function MyTrades() {
+export function MyPreviousTrades() {
+  return (
+    <VStack
+      space="md"
+      // backgroundColor="$white"
+      // borderWidth={1}
+      // borderColor="black"
+      height={"auto"}
+      paddingHorizontal={15}
+      paddingVertical={10}
+    >
+      <Heading size="md">Past Trades</Heading>
+      <VStack space="xs">
+        {[...Array(3)].map((tr) => (
+          <HStack width={"$full"} p={5} paddingHorizontal={5}>
+            <VStack flexGrow={1}>
+              <Heading size="md">Code</Heading>
+              <Text size="sm">Profited: </Text>
+            </VStack>
+            <VStack width={"auto"}>
+              <Text size="sm">Held for 8 Days</Text>
+              <Text size="sm">Profited:</Text>
+            </VStack>
+            {/* <Text size="sm">Lot Size: </Text> */}
+          </HStack>
+        ))}
+      </VStack>
+    </VStack>
+  );
+}
+
+export function MyCurrentTrades() {
   return (
     <VStack
       space="md"

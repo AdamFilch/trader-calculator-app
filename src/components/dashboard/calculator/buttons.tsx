@@ -1,5 +1,5 @@
 import { Pressable, View } from "react-native";
-import { Divider } from "../../common/CustomUI";
+import { Divider } from "../../common/custom-ui";
 import { Typography } from "../../common/Typography";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Href, useRouter } from "expo-router";

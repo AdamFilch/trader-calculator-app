@@ -17,7 +17,7 @@ import {
 } from "react-native-calendars";
 import { formatDateISO } from "../common/time-display";
 
-export default function CalendarShowcase() {
+export function CalendarShowcase() {
   return (
     <SafeAreaView marginVertical={10}>
       {/* <Heading size="sm" alignSelf="center">

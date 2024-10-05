@@ -5,7 +5,7 @@ import { useProfitLossStore } from "./context";
 
 type Props = {};
 
-export const ProfitLossResults = (props: Props) => {
+export const Results = (props: Props) => {
   const state = useProfitLossStore((state) => state.profitloss);
   return (
     <View style={{ margin: "auto" }}>

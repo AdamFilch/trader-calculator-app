@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import { Typography } from "../common/Typography";
-import { Icon } from "../common/CustomUI";
+import { Icon } from "../common/custom-ui";
 import { Box, Center, HStack, Text, VStack } from "@gluestack-ui/themed";
 
 export function DiaryHeader() {
