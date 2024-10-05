@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 export function CurrentTime() {
   const hours = new Date().getHours();
   const mins = new Date().getMinutes();
@@ -13,4 +15,13 @@ export function FullCurrentTime() {
   return res;
 }
 
-export function formatTimestamp() {}
+export function formatDateISO({
+  date,
+  dateFormat,
+}: {
+  date: string;
+  dateFormat: string;
+}) {
+  const d = new Date(date);
+  return format(date, dateFormat);
+}
