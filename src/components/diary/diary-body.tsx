@@ -34,8 +34,8 @@ export function MyPreviousTrades() {
     >
       <Heading size="md">Past Trades</Heading>
       <VStack space="xs">
-        {[...Array(3)].map((tr) => (
-          <HStack width={"$full"} p={5} paddingHorizontal={5}>
+        {[...Array(3)].map((tr, index) => (
+          <HStack key={index} width={"$full"} p={5} paddingHorizontal={5}>
             <VStack flexGrow={1}>
               <Heading size="md">Code</Heading>
               <Text size="sm">Profited: </Text>
@@ -67,8 +67,8 @@ export function MyCurrentTrades() {
         Currently holding <Text>8</Text> Trades
       </Heading>
       <VStack space="xs">
-        {[...Array(3)].map((tr) => (
-          <HStack width={"$full"} p={5} paddingHorizontal={5}>
+        {[...Array(3)].map((tr, index) => (
+          <HStack key={index} width={"$full"} p={5} paddingHorizontal={5}>
             <VStack flexGrow={1}>
               <Heading size="md">Code</Heading>
               <Text size="sm">Invested: </Text>

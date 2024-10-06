@@ -7,8 +7,8 @@ export default function DiaryPage() {
   return (
     <ScrollView>
       <CalendarProvider date={mockDates[0].title}>
-        <diary.CalendarShowcase />
         <diary.DiaryHeader />
+        <diary.CalendarShowcase />
         <diary.DiaryBody />
       </CalendarProvider>
     </ScrollView>

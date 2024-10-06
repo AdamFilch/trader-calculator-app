@@ -1,6 +1,9 @@
 import { mockDates } from "@/src/constants/MockData";
 import {
+  Box,
+  Button,
   Center,
+  Divider,
   Heading,
   HStack,
   SafeAreaView,
@@ -20,18 +23,28 @@ import { formatDateISO } from "../common/time-display";
 export function CalendarShowcase() {
   return (
     <SafeAreaView marginVertical={10}>
-      {/* <Heading size="sm" alignSelf="center">
-        View days you traded!
-      </Heading> */}
+      <Box
+        display="flex"
+        flexDirection="row"
+        justifyContent="space-between"
+        marginHorizontal={15}
+      >
+        <Heading size="sm">Days you traded</Heading>
+        <Button variant="link" size="xs">
+          <Text>Expand</Text>
+        </Button>
+      </Box>
+      <Divider />
       <ExpandableCalendar
-        renderHeader={(date) => {
-          return (
-            <VStack key={date} alignItems="center">
-              <Heading size="sm">View days you traded!</Heading>
-              <Text>{formatDateISO({ date, dateFormat: "MMMM yyyy" })}</Text>
-            </VStack>
-          );
-        }}
+        futureScrollRange={0}
+        // renderHeader={(date) => {
+        //   return (
+        //     <VStack key={date.toString("MMMM yyyy")} alignItems="center">
+        //       <Heading size="sm">View days you traded!</Heading>
+        //       <Text>{formatDateISO({ date, dateFormat: "MMMM yyyy" })}</Text>
+        //     </VStack>
+        //   );
+        // }}
       />
     </SafeAreaView>
   );
