@@ -1,26 +1,31 @@
-import { mockDates } from "@/src/constants/MockData";
 import {
   Box,
   Button,
-  Center,
   Divider,
   Heading,
-  HStack,
   SafeAreaView,
   Text,
-  VStack,
 } from "@gluestack-ui/themed";
-import { View } from "react-native";
-import {
-  Agenda,
-  AgendaList,
-  Calendar,
-  ExpandableCalendar,
-  WeekCalendar,
-} from "react-native-calendars";
+import { PureComponent, useMemo, useState } from "react";
+import { ExpandableCalendar } from "react-native-calendars";
 import { formatDateISO } from "../common/time-display";
 
 export function CalendarShowcase() {
+  const [selected, setSelectedDate] = useState("");
+
+  const calendar = useMemo(
+    () => (
+      <ExpandableCalendar
+        onDayPress={(day) => {
+          setSelectedDate(day.dateString);
+        }}
+        futureScrollRange={0}
+        pastScrollRange={12}
+      />
+    ),
+    [selected]
+  );
+
   return (
     <SafeAreaView marginVertical={10}>
       <Box
@@ -35,17 +40,7 @@ export function CalendarShowcase() {
         </Button>
       </Box>
       <Divider />
-      <ExpandableCalendar
-        futureScrollRange={0}
-        // renderHeader={(date) => {
-        //   return (
-        //     <VStack key={date.toString("MMMM yyyy")} alignItems="center">
-        //       <Heading size="sm">View days you traded!</Heading>
-        //       <Text>{formatDateISO({ date, dateFormat: "MMMM yyyy" })}</Text>
-        //     </VStack>
-        //   );
-        // }}
-      />
+      {/* {calendar} */}
     </SafeAreaView>
   );
 }

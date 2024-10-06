@@ -23,14 +23,6 @@ export default function DashboardPage({}) {
       >
         <View style={{ flexDirection: "row", gap: 10 }}>
           <ClockDisplay />
-          <View
-            style={{
-              height: 300,
-              backgroundColor: "#DFE4EA",
-              flex: 1,
-              borderRadius: 10,
-            }}
-          ></View>
         </View>
         <View style={{ flexDirection: "row", gap: 10 }}></View>
       </View>
