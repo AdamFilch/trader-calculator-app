@@ -39,6 +39,7 @@
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
     "expo-web-browser": "~13.0.3",
+    "express": "^4.21.0",
     "gluestack-ui": "^0.7.10",
     "i18next": "^23.15.1",
     "react": "18.2.0",
