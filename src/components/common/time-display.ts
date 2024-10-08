@@ -1,7 +1,21 @@
-export function CurrentTime() {
-  const hours = new Date().getHours();
-  const mins = new Date().getMinutes();
-  const res = hours + ":" + mins;
+import { format } from "date-fns";
+
+export function CurrentTime({ twelve }: { twelve?: boolean }) {
+  let res;
+
+  if (twelve) {
+    const time = new Date();
+    res = time.toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+  } else {
+    const hours = new Date().getHours();
+    const mins = new Date().getMinutes();
+    res = hours + ":" + mins;
+  }
+
   return res;
 }
 
@@ -13,4 +27,13 @@ export function FullCurrentTime() {
   return res;
 }
 
-export function formatTimestamp() {}
+export function formatDateISO({
+  date,
+  dateFormat,
+}: {
+  date: string;
+  dateFormat: string;
+}) {
+  const d = new Date(date);
+  return format(date, dateFormat);
+}

@@ -1,22 +1,26 @@
 import { View } from "react-native";
 import { Typography } from "../../common/Typography";
 import { CurrentTime } from "../../common/time-display";
+import { Heading, Text, VStack } from "@gluestack-ui/themed";
 
 export function ClockDisplay() {
   return (
     <View
       style={{
         height: 300,
-        backgroundColor: "#DFE4EA",
         flex: 2,
         borderRadius: 10,
-        alignItems: "center",
-        justifyContent: "flex-end",
+        alignItems: "flex-start",
+        justifyContent: "flex-start",
       }}
     >
-      <Typography style={{ fontSize: 50 }}>
-        <CurrentTime />
-      </Typography>
+      <Heading size="4xl" marginBottom={-10}>
+        <CurrentTime twelve />
+      </Heading>
+      <Text>
+        The market is now <Text color="$backgroundDarkError">Open!</Text>
+      </Text>
+      <Text>5 mins till Close</Text>
     </View>
   );
 }

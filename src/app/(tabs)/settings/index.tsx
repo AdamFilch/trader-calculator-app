@@ -1,4 +1,4 @@
-import { Icon } from "@/src/components/common/CustomUI";
+import { Icon } from "@/src/components/common/custom-ui";
 import { Typography } from "@/src/components/common/Typography";
 import { useTheme } from "@/src/constants/TraderThemeContext";
 import { useTranslation } from "react-i18next";

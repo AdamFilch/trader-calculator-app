@@ -1,13 +1,16 @@
-import { Typography } from "@/src/components/common/Typography";
-import CalendarShowcase from "@/src/components/diary/CalendarView";
-import { DiaryHeader } from "@/src/components/diary/DiaryHeader";
-import { View } from "react-native";
+import { mockDates } from "@/src/constants/MockData";
+import { ScrollView } from "@gluestack-ui/themed";
+import { CalendarProvider } from "react-native-calendars";
+import diary from "@/src/components/diary";
 
 export default function DiaryPage() {
   return (
-    <View>
-      <DiaryHeader />
-      <CalendarShowcase />
-    </View>
+    <ScrollView>
+      <CalendarProvider date={mockDates[0].title}>
+        <diary.DiaryHeader />
+        <diary.CalendarShowcase />
+        <diary.DiaryBody />
+      </CalendarProvider>
+    </ScrollView>
   );
 }

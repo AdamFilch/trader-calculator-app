@@ -2,7 +2,7 @@ import { Typography } from "@/src/components/common/Typography";
 import { View } from "react-native";
 import { useAverageStore } from "./context";
 
-export function AverageCalculatorResults() {
+export function Results() {
   const invested = useAverageStore((state) => state.amount_invested);
   const cummAverage = useAverageStore((state) => state.cumm_average);
   const totalLotSize = useAverageStore((state) => state.total_lot_size);

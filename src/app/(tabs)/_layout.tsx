@@ -9,7 +9,7 @@ import DashboardPage from "./dashboard";
 import HomeScreen from ".";
 import settingsPage from "./settings";
 import DiaryPage from "./diary";
-import { Icon } from "@/src/components/common/CustomUI";
+import { Icon } from "@/src/components/common/custom-ui";
 
 export default function TabLayout() {
   const Tabs = AnimatedTabBarNavigator();

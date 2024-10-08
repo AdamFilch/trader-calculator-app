@@ -1,12 +1,10 @@
 import { Typography } from "@/src/components/common/Typography";
-import React, { useState } from "react";
-import { Pressable, ScrollView, TextInput, View } from "react-native";
-import { ProfitLossResults } from "../../../components/dashboard/calculator/profit-loss/result";
+import React from "react";
+import { ScrollView, TextInput, View } from "react-native";
 import { useProfitLossStore } from "../../../components/dashboard/calculator/profit-loss/context";
+import ProfitLoss from "@/src/components/dashboard/calculator/profit-loss";
 
-type Props = {};
-
-export default function ProfitLossReturnCalculator(props: Props) {
+export default function ProfitLossReturnCalculator() {
   const boughtFor = useProfitLossStore((s) => s.profitloss.bought_for);
   const soldFor = useProfitLossStore((s) => s.profitloss.sold_for);
   const lotSize = useProfitLossStore((s) => s.profitloss.lot_size);
@@ -19,7 +17,7 @@ export default function ProfitLossReturnCalculator(props: Props) {
   return (
     <ScrollView>
       <View style={{ marginHorizontal: 30 }}>
-        <ProfitLossResults />
+        <ProfitLoss.Results />
         <Typography>ProfitLossReturnCalculator</Typography>
         <View
           style={{
