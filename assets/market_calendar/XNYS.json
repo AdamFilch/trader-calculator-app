@@ -27,7 +27,8 @@
         ],
         "open_time": "09:30",
         "close_time": "16:00",
-        "early_close_time": "13:00"
+        "early_close_time": "13:00",
+        "scheduled_break": {}
     },
     "holidays": [
         {

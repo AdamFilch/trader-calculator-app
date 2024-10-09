@@ -23,7 +23,14 @@
             "Friday"
         ],
         "open_time": "09:00",
-        "close_time": "15:50"
+        "close_time": "15:50",
+        "scheduled_break": {
+            "Monday": "12:30-14:30",
+            "Tuesday": "12:30-14:30",
+            "Wednesday": "12:30-14:30",
+            "Thursday": "12:30-14:30",
+            "Friday": "11:30-13:30"
+        }
     },
     "holidays": [
         {
