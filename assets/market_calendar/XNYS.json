@@ -1,0 +1,183 @@
+{
+    "std": {
+        "mic": "XNYS",
+        "exchange": "New York Stock Exchange",
+        "acronym": "NYSE",
+        "lei": "5493000F4ZO33MV32P92",
+        "url": "https://www.nyse.com/index",
+        "city": "New York",
+        "country": "United States",
+        "country_code": "US",
+        "flag": "\ud83c\uddfa\ud83c\uddf8",
+        "currency_code": "USD",
+        "currency_symbol": "$",
+        "region": "North America",
+        "timezone": "America/New_York",
+        "timezone_abbr": "EDT",
+        "utc_offset": "-0400",
+        "dst": true,
+        "previous_dst_transition": "2024-03-10",
+        "next_dst_transition": "2024-11-03",
+        "weekdays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "open_time": "09:30",
+        "close_time": "16:00",
+        "early_close_time": "13:00"
+    },
+    "holidays": [
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2024-11-28",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Thanksgiving",
+            "is_early_close": false
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2024-11-29",
+            "day_of_week": "Friday",
+            "is_weekend": false,
+            "is_business_day": true,
+            "holiday_name": "Black Friday",
+            "is_early_close": true,
+            "open_time": "2024-11-29T09:30:00-05:00",
+            "close_time": "2024-11-29T13:00:00-05:00"
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2024-12-24",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": true,
+            "holiday_name": "Christmas Eve",
+            "is_early_close": true,
+            "open_time": "2024-12-24T09:30:00-05:00",
+            "close_time": "2024-12-24T13:00:00-05:00"
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2024-12-25",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Christmas",
+            "is_early_close": false
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2025-01-01",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "New Year's Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2025-01-20",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Dr. Martin Luther King Jr. Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2025-02-17",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "President's Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2025-04-18",
+            "day_of_week": "Friday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Good Friday",
+            "is_early_close": false
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2025-05-26",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Memorial Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2025-06-19",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Juneteenth National Independence Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2025-07-03",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": true,
+            "holiday_name": "Mondays, Tuesdays, and Thursdays Before Independence Day",
+            "is_early_close": true,
+            "open_time": "2025-07-03T09:30:00-04:00",
+            "close_time": "2025-07-03T13:00:00-04:00"
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2025-07-04",
+            "day_of_week": "Friday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "July 4th",
+            "is_early_close": false
+        },
+        {
+            "exchange": "New York Stock Exchange",
+            "flag": "\ud83c\uddfa\ud83c\uddf8",
+            "mic": "XNYS",
+            "date": "2025-09-01",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Labor Day",
+            "is_early_close": false
+        }
+    ]
+}
