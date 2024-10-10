@@ -2,8 +2,15 @@ import { View } from "react-native";
 import { Typography } from "../../common/Typography";
 import { CurrentTime } from "../../common/time-display";
 import { Heading, Text, VStack } from "@gluestack-ui/themed";
+import { useMarketData, useMarketHolidays } from "@/src/hooks/useMarketData";
 
 export function ClockDisplay() {
+  const diary = {
+    market: "XTKS",
+  };
+  const { market } = useMarketData(diary.market);
+  const { market: holidays } = useMarketHolidays(diary.market);
+
   return (
     <View
       style={{
