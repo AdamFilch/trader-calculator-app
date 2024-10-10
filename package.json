@@ -4,12 +4,12 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "update-market": "python ./backend/scripts/update-market-calendar.py"
   },
   "jest": {
     "preset": "jest-expo"
@@ -39,6 +39,7 @@
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
     "expo-web-browser": "~13.0.3",
+    "express": "^4.21.0",
     "gluestack-ui": "^0.7.10",
     "i18next": "^23.15.1",
     "react": "18.2.0",

@@ -1,0 +1,60 @@
+{
+    "std": {
+        "mic": "XSES",
+        "exchange": "Singapore Exchange",
+        "acronym": "SGX",
+        "lei": "549300IQ650PPXM76X03",
+        "url": "https://www.sgx.com",
+        "city": "Singapore",
+        "country": "Singapore",
+        "country_code": "SG",
+        "flag": "\ud83c\uddf8\ud83c\uddec",
+        "currency_code": "SGD",
+        "currency_symbol": "$",
+        "region": "Asia-Pacific",
+        "timezone": "Asia/Singapore",
+        "timezone_abbr": "+08",
+        "utc_offset": "+0800",
+        "dst": false,
+        "weekdays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "scheduled_break": {
+            "Monday": "12:00-13:00",
+            "Tuesday": "12:00-13:00",
+            "Wednesday": "12:00-13:00",
+            "Thursday": "12:00-13:00",
+            "Friday": "12:00-13:00"
+        }
+    },
+    "holidays": [
+        {
+            "exchange": "Singapore Exchange",
+            "flag": "\ud83c\uddf8\ud83c\uddec",
+            "mic": "XSES",
+            "date": "2024-10-31",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Deepavali",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Singapore Exchange",
+            "flag": "\ud83c\uddf8\ud83c\uddec",
+            "mic": "XSES",
+            "date": "2024-12-25",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Christmas Day",
+            "is_early_close": false
+        }
+    ]
+}

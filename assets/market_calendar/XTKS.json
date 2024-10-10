@@ -1,0 +1,225 @@
+{
+    "std": {
+        "mic": "XTKS",
+        "exchange": "Tokyo Stock Exchange",
+        "acronym": "TSE",
+        "lei": "353800578ADEGIJTVW07",
+        "url": "https://www.jpx.co.jp/english",
+        "city": "Tokyo",
+        "country": "Japan",
+        "country_code": "JP",
+        "flag": "\ud83c\uddef\ud83c\uddf5",
+        "currency_code": "JPY",
+        "currency_symbol": "\u00a5",
+        "region": "Asia-Pacific",
+        "timezone": "Asia/Tokyo",
+        "timezone_abbr": "JST",
+        "utc_offset": "+0900",
+        "dst": false,
+        "weekdays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "open_time": "09:00",
+        "close_time": "15:00",
+        "scheduled_break": {
+            "Monday": "11:30-12:30",
+            "Tuesday": "11:30-12:30",
+            "Wednesday": "11:30-12:30",
+            "Thursday": "11:30-12:30",
+            "Friday": "11:30-12:30"
+        }
+    },
+    "holidays": [
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2024-10-14",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Health and Sports Day (2022 onwards)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2024-11-04",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Culture Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2024-11-23",
+            "day_of_week": "Saturday",
+            "is_weekend": true,
+            "is_business_day": false,
+            "holiday_name": "Labor Thanksgiving Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2024-12-31",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "New Year's Holiday (Dec 31)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-01-01",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "New Year's Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-01-02",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "New Year's Holiday (Jan 2)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-01-03",
+            "day_of_week": "Friday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "New Year's Holiday (Jan 3)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-01-13",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Coming of Age Day (2000 onwards)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-02-11",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "National Foundation Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-02-24",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Emperor Naruhito's Birthday",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-04-29",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Showa Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-05-03",
+            "day_of_week": "Saturday",
+            "is_weekend": true,
+            "is_business_day": false,
+            "holiday_name": "Constitution Memorial Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-05-05",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Children's Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-05-06",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Greenery Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-07-21",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Marine Day (2022 onwards)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-08-11",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Mountain Day (2022 onwards)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-09-15",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Respect for the Aged Day (2003 onwards)",
+            "is_early_close": false
+        }
+    ]
+}

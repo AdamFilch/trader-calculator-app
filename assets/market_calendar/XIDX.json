@@ -1,0 +1,136 @@
+{
+    "std": {
+        "mic": "XIDX",
+        "exchange": "Indonesia Stock Exchange",
+        "acronym": "IDX",
+        "url": "https://www.idx.co.id",
+        "city": "Jakarta",
+        "country": "Indonesia",
+        "country_code": "ID",
+        "flag": "\ud83c\uddee\ud83c\udde9",
+        "currency_code": "IDR",
+        "currency_symbol": "Rp",
+        "region": "Asia-Pacific",
+        "timezone": "Asia/Jakarta",
+        "timezone_abbr": "WIB",
+        "utc_offset": "+0700",
+        "dst": false,
+        "weekdays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "open_time": "09:00",
+        "close_time": "15:50",
+        "scheduled_break": {
+            "Monday": "12:30-14:30",
+            "Tuesday": "12:30-14:30",
+            "Wednesday": "12:30-14:30",
+            "Thursday": "12:30-14:30",
+            "Friday": "11:30-13:30"
+        }
+    },
+    "holidays": [
+        {
+            "exchange": "Indonesia Stock Exchange",
+            "flag": "\ud83c\uddee\ud83c\udde9",
+            "mic": "XIDX",
+            "date": "2024-12-25",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Christmas",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Indonesia Stock Exchange",
+            "flag": "\ud83c\uddee\ud83c\udde9",
+            "mic": "XIDX",
+            "date": "2024-12-31",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "New Year's Eve",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Indonesia Stock Exchange",
+            "flag": "\ud83c\uddee\ud83c\udde9",
+            "mic": "XIDX",
+            "date": "2025-01-01",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "New Year's Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Indonesia Stock Exchange",
+            "flag": "\ud83c\uddee\ud83c\udde9",
+            "mic": "XIDX",
+            "date": "2025-01-29",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Lunar New Year (estimated)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Indonesia Stock Exchange",
+            "flag": "\ud83c\uddee\ud83c\udde9",
+            "mic": "XIDX",
+            "date": "2025-04-18",
+            "day_of_week": "Friday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Good Friday",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Indonesia Stock Exchange",
+            "flag": "\ud83c\uddee\ud83c\udde9",
+            "mic": "XIDX",
+            "date": "2025-05-01",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Labor Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Indonesia Stock Exchange",
+            "flag": "\ud83c\uddee\ud83c\udde9",
+            "mic": "XIDX",
+            "date": "2025-05-29",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Ascension Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Indonesia Stock Exchange",
+            "flag": "\ud83c\uddee\ud83c\udde9",
+            "mic": "XIDX",
+            "date": "2025-06-01",
+            "day_of_week": "Sunday",
+            "is_weekend": true,
+            "is_business_day": false,
+            "holiday_name": "Pancasila Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Indonesia Stock Exchange",
+            "flag": "\ud83c\uddee\ud83c\udde9",
+            "mic": "XIDX",
+            "date": "2025-08-17",
+            "day_of_week": "Sunday",
+            "is_weekend": true,
+            "is_business_day": false,
+            "holiday_name": "Independence Day",
+            "is_early_close": false
+        }
+    ]
+}

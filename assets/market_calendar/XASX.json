@@ -1,0 +1,149 @@
+{
+    "std": {
+        "mic": "XASX",
+        "exchange": "Austrialian Securities Exchange",
+        "acronym": "ASX",
+        "lei": "549300USWUR0S7VMM868",
+        "url": "https://www.asx.com.au",
+        "city": "Sydney",
+        "country": "Australia",
+        "country_code": "AU",
+        "flag": "\ud83c\udde6\ud83c\uddfa",
+        "currency_code": "$",
+        "currency_symbol": "AUD",
+        "region": "Asia-Pacific",
+        "timezone": "Australia/Sydney",
+        "timezone_abbr": "AEDT",
+        "utc_offset": "+1100",
+        "dst": true,
+        "previous_dst_transition": "2024-10-06",
+        "next_dst_transition": "2025-04-06",
+        "weekdays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "open_time": "10:00",
+        "close_time": "16:00",
+        "early_close_time": "14:10",
+        "scheduled_break": {}
+    },
+    "holidays": [
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2024-12-24",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": true,
+            "holiday_name": "Last Trading Day Before Christmas",
+            "is_early_close": true,
+            "open_time": "2024-12-24T10:00:00+11:00",
+            "close_time": "2024-12-24T14:10:00+11:00"
+        },
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2024-12-25",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Christmas",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2024-12-26",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Boxing Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2024-12-31",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": true,
+            "holiday_name": "Last Trading Day Of Calendar Year",
+            "is_early_close": true,
+            "open_time": "2024-12-31T10:00:00+11:00",
+            "close_time": "2024-12-31T14:10:00+11:00"
+        },
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2025-01-01",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "New Year's Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2025-01-27",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Australia Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2025-04-18",
+            "day_of_week": "Friday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Good Friday",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2025-04-21",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Easter Monday",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2025-04-25",
+            "day_of_week": "Friday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Anzac Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Austrialian Securities Exchange",
+            "flag": "\ud83c\udde6\ud83c\uddfa",
+            "mic": "XASX",
+            "date": "2025-06-09",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Kings's Birthday",
+            "is_early_close": false
+        }
+    ]
+}

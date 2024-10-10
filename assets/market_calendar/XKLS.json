@@ -1,0 +1,215 @@
+{
+    "std": {
+        "mic": "XKLS",
+        "exchange": "Malaysia Stock Exchange",
+        "lei": "254900CXCSGW8M52ZU27",
+        "url": "https://www.bursamalaysia.com",
+        "city": "Kuala Lumpur",
+        "country": "Malaysia",
+        "country_code": "MY",
+        "flag": "\ud83c\uddf2\ud83c\uddfe",
+        "currency_code": "MYR",
+        "currency_symbol": "$",
+        "region": "Asia-Pacific",
+        "timezone": "Asia/Kuala_Lumpur",
+        "timezone_abbr": "+08",
+        "utc_offset": "+0800",
+        "dst": false,
+        "weekdays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "open_time": "09:00",
+        "close_time": "17:00",
+        "early_close_time": "12:30",
+        "scheduled_break": {
+            "Monday": "12:30-14:30",
+            "Tuesday": "12:30-14:30",
+            "Wednesday": "12:30-14:30",
+            "Thursday": "12:30-14:30",
+            "Friday": "12:30-14:30"
+        }
+    },
+    "holidays": [
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2024-10-31",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Deepavali",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2024-12-25",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Christmas",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-01-01",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "New Year's Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-01-28",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": true,
+            "is_early_close": true,
+            "open_time": "2025-01-28T09:00:00+08:00",
+            "close_time": "2025-01-28T12:30:00+08:00"
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-01-29",
+            "day_of_week": "Wednesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Chinese New Year (estimated)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-01-30",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Chinese New Year (Second Day) (estimated)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-02-01",
+            "day_of_week": "Saturday",
+            "is_weekend": true,
+            "is_business_day": false,
+            "holiday_name": "Federal Territory Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-03-17",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Nuzul Al-Quran Day (estimated)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-03-31",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Eid al-Fitr (Second Day) (estimated)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-04-01",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Eid al-Fitr (observed, estimated)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-05-01",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Labour Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-06-06",
+            "day_of_week": "Friday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Eid al-Adha (estimated)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-06-26",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Islamic New Year (estimated)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-09-01",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "National Day",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-09-04",
+            "day_of_week": "Thursday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Prophet Muhammad's Birthday (estimated)",
+            "is_early_close": false
+        },
+        {
+            "exchange": "Malaysia Stock Exchange",
+            "flag": "\ud83c\uddf2\ud83c\uddfe",
+            "mic": "XKLS",
+            "date": "2025-09-16",
+            "day_of_week": "Tuesday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Malaysia Day",
+            "is_early_close": false
+        }
+    ]
+}

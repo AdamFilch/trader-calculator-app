@@ -12,6 +12,7 @@ import { SQLiteProvider } from "expo-sqlite";
 import { dbName, initDatabase } from "@/backend/scripts/sqlite";
 import { GluestackUIProvider } from "@gluestack-ui/themed";
 import { config } from "@gluestack-ui/config";
+import { DiaryContextProvider } from "../constants/DiaryContext";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -38,18 +39,20 @@ export default function RootLayout() {
       onInit={initDatabase}
     >
       <TraderThemeProvider>
-        <GluestackUIProvider config={config}>
-          <Stack
-            screenOptions={
-              {
-                // headerShown: false,
+        <DiaryContextProvider>
+          <GluestackUIProvider config={config}>
+            <Stack
+              screenOptions={
+                {
+                  // headerShown: false,
+                }
               }
-            }
-          >
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="+not-found" />
-          </Stack>
-        </GluestackUIProvider>
+            >
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="+not-found" />
+            </Stack>
+          </GluestackUIProvider>
+        </DiaryContextProvider>
       </TraderThemeProvider>
     </SQLiteProvider>
   );
