@@ -102,3 +102,18 @@ export function dateifyMe({
   );
   return newD;
 }
+
+export function timeIsAfter({
+  from,
+  to,
+}: {
+  from: string;
+  to: string;
+}): boolean {
+  from.split(":");
+  to.split(":");
+
+  const fromd = dateifyMe({ hours: from[0], minutes: from[1] });
+  const tod = dateifyMe({ hours: to[0], minutes: to[1] });
+  return fromd > tod;
+}
