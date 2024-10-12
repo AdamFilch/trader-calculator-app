@@ -5,21 +5,47 @@ import {
   dateifyMe,
   getCurrentTime,
   getHowLongTill,
+  timeIsAfter,
 } from "../../common/time-display";
 import { Heading, Text, VStack } from "@gluestack-ui/themed";
 import { useMarketData, useMarketHolidays } from "@/src/hooks/useMarketData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function ClockDisplay() {
   const diary = {
-    market: "XTKS",
+    market: "XNYS",
   };
   const { market } = useMarketData(diary.market);
-  const CT = getCurrentTime();
-  const [upcommingState, setUpcommingState] = useState({
-    type: "",
-    time: "",
+  const [CT, setCT] = useState(getCurrentTime());
+
+  const [upcomming, setUpcomming] = useState({
+    from: CT,
+    to: market.open_time,
+    upc: "Open",
   });
+
+  const nextSession = getNextSession();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (timeIsAfter({ from: CT, to: market.close_time })) {
+        setUpcomming({
+          ...upcomming,
+          to: market.open_time,
+          upc: "closed",
+        });
+      } else if (timeIsAfter({ from: CT, to: market.open_time })) {
+        setUpcomming({
+          ...upcomming,
+          to: market.close_time,
+          upc: "open",
+        });
+      }
+      setCT(getCurrentTime());
+    }, 5000);
+
+    return () => clearInterval(interval); // Clean up the interval on component unmount
+  }, []);
 
   const hlt = getHowLongTill({ from: CT, to: market.open_time })?.split(":");
 
@@ -37,7 +63,8 @@ export function ClockDisplay() {
         <CurrentTime twelve />
       </Heading>
       <Text>
-        The market is now <Text color="$backgroundDarkError">Open!</Text>
+        The market is now{" "}
+        <Text color="$backgroundDarkError">{upcomming.upc}!</Text>
       </Text>
       <Text>
         {parseInt(hlt[0]) > 0 ? `${hlt[0]} Hrs` : `${hlt[1]} Mins`} till next
@@ -45,4 +72,13 @@ export function ClockDisplay() {
       </Text>
     </View>
   );
+}
+
+export function getNextSession(): string {
+  const { market } = useMarketData("XIDX");
+
+  const today = new Date().toISOString();
+  // console.log("ClockDisplay", today);
+  
+  return "";
 }

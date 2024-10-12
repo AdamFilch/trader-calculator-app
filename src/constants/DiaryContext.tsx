@@ -1,13 +1,20 @@
-import { createContext, createElement, PropsWithChildren, useState } from "react";
+import {
+  createContext,
+  createElement,
+  PropsWithChildren,
+  useState,
+} from "react";
 
 const DiaryCtx = createContext({});
 
 export const DiaryContextProvider = ({ children }: PropsWithChildren) => {
-  const [diaryState, setDiaryState] = useState(null);
-  
+  const [diaryState, setDiaryState] = useState({
+    nextHoliday: {},
+    selectedDiary: {},
+    selectedMarket: {},
+  });
+
   return (
-    <DiaryCtx.Provider value={{diaryState}}>
-      {children}
-    </DiaryCtx.Provider>
-  )
-}
+    <DiaryCtx.Provider value={{ diaryState }}>{children}</DiaryCtx.Provider>
+  );
+};
