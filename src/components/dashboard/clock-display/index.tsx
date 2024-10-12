@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 
 export function ClockDisplay() {
   const diary = {
-    market: "XTKS",
+    market: "XNYS",
   };
   const { market } = useMarketData(diary.market);
   const [CT, setCT] = useState(getCurrentTime());
@@ -24,12 +24,10 @@ export function ClockDisplay() {
     upc: "Open",
   });
 
+  const nextSession = getNextSession();
+
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log(
-        "TimeDisplay",
-        timeIsAfter({ from: CT, to: market.open_time })
-      );
       if (timeIsAfter({ from: CT, to: market.close_time })) {
         setUpcomming({
           ...upcomming,
@@ -74,4 +72,13 @@ export function ClockDisplay() {
       </Text>
     </View>
   );
+}
+
+export function getNextSession(): string {
+  const { market } = useMarketData("XIDX");
+
+  const today = new Date().toISOString();
+  // console.log("ClockDisplay", today);
+  
+  return "";
 }

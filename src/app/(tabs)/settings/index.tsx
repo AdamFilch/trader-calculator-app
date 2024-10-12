@@ -8,13 +8,24 @@ import {
   availableCurrency,
   availableLanguages,
 } from "@/src/constants/Settings";
+import {
+  Box,
+  Button,
+  Card,
+  Heading,
+  Menu,
+  MenuItem,
+  MenuItemLabel,
+  Text,
+} from "@gluestack-ui/themed";
 
 export default function SettingsPage() {
   const { t, i18n } = useTranslation("settings");
   const { isLightMode, toggleTheme } = useTheme();
   const [selectedLanguage, setSelectedLanguage] = useState("en");
-  const [selectedCurrency, setSelectedCurrency] = useState("rupiah");
+  // const [selectedCurrency, setSelectedCurrency] = useState("rupiah");
 
+  console.log("selectedLang", i18n.language);
   const generalSegm = [
     {
       leadIcon: "contrast",
@@ -34,36 +45,38 @@ export default function SettingsPage() {
       leadIcon: "language",
       title: "Change Language",
       trail: (
-        <View
-          style={{
-            borderWidth: 1,
-            borderColor: "grey",
-            borderRadius: 4,
+        <Menu
+          placement="right"
+          offset={5}
+          disabledKeys={["Settings"]}
+          trigger={({ ...triggerProps }) => {
+            return (
+              <Button variant="outline" size="sm" {...triggerProps}>
+                <Text>
+                  {
+                    availableLanguages.find((lang) => lang.id == i18n.language)
+                      ?.name
+                  }
+                </Text>
+              </Button>
+            );
           }}
         >
-          {/* <Picker
-            style={{
-              width: 100,
-              textAlign: "right",
-            }}
-            mode="dropdown"
-            selectedValue={selectedLanguage}
-            onValueChange={(itemValue, itemIndex) => {
-              setSelectedLanguage(itemValue);
-              i18n.changeLanguage(itemValue);
-            }}
-          >
-            {Object.values(availableLanguages).map((language) => {
-              return (
-                <Picker.Item
-                  key={language.id}
-                  label={language.name}
-                  value={language.id}
-                />
-              );
-            })}
-          </Picker> */}
-        </View>
+          {availableLanguages.map((lang, index) => {
+            return (
+              <MenuItem
+                textValue={lang.id}
+                key={lang.id}
+                onPress={() => {
+                  setSelectedLanguage(lang.id);
+                  i18n.changeLanguage(lang.id);
+                }}
+              >
+                <MenuItemLabel>{lang.name}</MenuItemLabel>
+              </MenuItem>
+            );
+          })}
+        </Menu>
       ),
     },
 
@@ -71,31 +84,38 @@ export default function SettingsPage() {
       leadIcon: "payment",
       title: "Change Currency",
       trail: (
-        <View
-          style={{
-            borderWidth: 1,
-            borderColor: "grey",
-            borderRadius: 4,
+        <Menu
+          placement="right"
+          offset={5}
+          disabledKeys={["Settings"]}
+          trigger={({ ...triggerProps }) => {
+            return (
+              <Button variant="outline" size="sm" {...triggerProps}>
+                <Text>
+                  {
+                    availableLanguages.find((lang) => lang.id == i18n.language)
+                      ?.name
+                  }
+                </Text>
+              </Button>
+            );
           }}
         >
-          {/* <Picker
-            style={{
-              width: 100,
-              textAlign: "right",
-            }}
-            mode="dropdown"
-            selectedValue={selectedCurrency}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedCurrency(itemValue)
-            }
-          >
-            {Object.entries(availableCurrency).map(([key, currency]) => {
-              return (
-                <Picker.Item key={key} label={currency.name} value={key} />
-              );
-            })}
-          </Picker> */}
-        </View>
+          {availableLanguages.map((lang, index) => {
+            return (
+              <MenuItem
+                textValue={lang.id}
+                key={lang.id}
+                onPress={() => {
+                  setSelectedLanguage(lang.id);
+                  i18n.changeLanguage(lang.id);
+                }}
+              >
+                <MenuItemLabel>{lang.name}</MenuItemLabel>
+              </MenuItem>
+            );
+          })}
+        </Menu>
       ),
     },
   ];
@@ -135,8 +155,13 @@ export default function SettingsPage() {
       <View>
         <Typography style={{ fontSize: 30 }}>{t("Settings")}</Typography>
       </View>
+      <Card>
+        <Heading>Diary Specific</Heading>
+        {/* <FlatList> */}
+      </Card>
       <View style={{ marginTop: 20 }}>
-        <Typography>{t("General")}</Typography>
+        <Heading size="sm">{t("General")}</Heading>
+
         <View
           style={{
             borderWidth: 0.8,
@@ -156,8 +181,10 @@ export default function SettingsPage() {
           />
         </View>
       </View>
+
       <View>
-        <Typography>{t("About App")}</Typography>
+        <Heading size="sm">{t("About App")}</Heading>
+
         <View
           style={{
             borderWidth: 0.8,
@@ -180,7 +207,8 @@ export default function SettingsPage() {
         </View>
       </View>
       <View>
-        <Typography>{t("More")}</Typography>
+        <Heading size="sm">{t("More")}</Heading>
+
         <View
           style={{
             borderWidth: 0.8,
@@ -221,7 +249,6 @@ function SegmentWithTrail({ title, leadIcon, children }: SettingsSegmentProps) {
         paddingHorizontal: 10,
         display: "flex",
         flexDirection: "row",
-        alignItems: "center",
         paddingVertical: Platform.OS ? 5 : 0,
       }}
     >
