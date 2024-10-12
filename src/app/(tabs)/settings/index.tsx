@@ -158,6 +158,14 @@ export default function SettingsPage() {
       <Card>
         <Heading>Diary Specific</Heading>
         {/* <FlatList> */}
+        <Text>
+          This should be within a different page, see like twitter or settings
+          page with deeper screen
+        </Text>
+        <Text>Currency Change</Text>
+        <Text>Market Change</Text>
+        <Text>Diary Name Change?</Text>
+        <Text>Diary Description?</Text>
       </Card>
       <View style={{ marginTop: 20 }}>
         <Heading size="sm">{t("General")}</Heading>
