@@ -46,28 +46,32 @@ markets = [
 
 def main():
 
-    start = str(datetime.today().strftime('%Y-%m-%d'))
-    split = start.split('-')
+    temp = str(datetime.today().strftime('%Y-%m-%d'))
+    split = temp.split('-')
+    start = str(int(split[0])-1) + "-" + split[1]+ "-" + split[2]
     end = str(int(split[0])+1) + "-" + split[1]+ "-" + split[2]
 
     for market in markets: 
-        res = requests.get(f"http://127.0.0.1:8000/api/v1/markets?mic={market.get('id')}")
-        std  = json.loads(res.text)
-        res = requests.get(f"http://127.0.0.1:8000/api/v1/markets/holidays?mic={market.get('id')}&start={start}&end={end}")
-        holidays = json.loads(res.text)
+        try: 
+            res = requests.get(f"http://127.0.0.1:8000/api/v1/markets?mic={market.get('id')}")
+            std  = json.loads(res.text)
+            res = requests.get(f"http://127.0.0.1:8000/api/v1/markets/holidays?mic={market.get('id')}&start={start}&end={end}")
+            holidays = json.loads(res.text)
 
-        scheduled_break = market.get('scheduled_break', {})
-        stdMerged = {**std[0], 'scheduled_break': scheduled_break}
+            scheduled_break = market.get('scheduled_break', {})
+            stdMerged = {**std[0], 'scheduled_break': scheduled_break}
 
-        f = open(f"./assets/market_calendar/{market.get('id')}.json", "w")
-        format = {
-            'std': stdMerged,
-            'holidays': holidays,
-        }
+            f = open(f"./assets/market_calendar/{market.get('id')}.json", "w")
+            format = {
+                'std': stdMerged,
+                'holidays': holidays,
+            }
 
-        
-        f.write(json.dumps(format, indent=4))
-        f.close()
+            
+            f.write(json.dumps(format, indent=4))
+            f.close()
+        except Exception:
+            print('Error encountered, Failed to establish connection check if docker is running!') 
     print(f'Market Calendar updated with data from {start} to {end}')
 
 
