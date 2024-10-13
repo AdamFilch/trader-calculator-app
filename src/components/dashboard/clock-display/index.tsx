@@ -1,5 +1,4 @@
 import { View } from "react-native";
-import { Typography } from "../../common/Typography";
 import {
   CurrentTime,
   dateifyMe,
@@ -8,23 +7,28 @@ import {
   timeIsAfter,
 } from "../../common/time-display";
 import { Heading, Text, VStack } from "@gluestack-ui/themed";
-import { useMarketData, useMarketHolidays } from "@/src/hooks/useMarketData";
+import {
+  getNextMarketHolidays,
+  useMarketData,
+  useMarketHolidays,
+} from "@/src/hooks/useMarketData";
 import { useEffect, useState } from "react";
 
 export function ClockDisplay() {
   const diary = {
-    market: "XNYS",
+    market: "XIDX",
   };
   const { market } = useMarketData(diary.market);
   const [CT, setCT] = useState(getCurrentTime());
-
   const [upcomming, setUpcomming] = useState({
     from: CT,
     to: market.open_time,
     upc: "Open",
   });
 
-  const nextSession = getNextSession();
+  // const nextSession = getNextSession();
+  const nextHoliday = getNextMarketHolidays(diary.market, 2);
+  console.log("getNextMH", nextHoliday);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -78,7 +82,7 @@ export function getNextSession(): string {
   const { market } = useMarketData("XIDX");
 
   const today = new Date().toISOString();
-  // console.log("ClockDisplay", today);
-  
+  console.log("ClockDisplay", today);
+
   return "";
 }

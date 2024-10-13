@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "update-market": "python ./backend/scripts/update-market-calendar.py"
+    "update-calendar": "python ./backend/scripts/update-market-calendar.py",
+    "clear-cache": "expo start -c"
   },
   "jest": {
     "preset": "jest-expo"

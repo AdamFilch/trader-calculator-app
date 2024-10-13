@@ -48,7 +48,7 @@ def main():
 
     temp = str(datetime.today().strftime('%Y-%m-%d'))
     split = temp.split('-')
-    start = str(int(split[0])-1) + "-" + split[1]+ "-" + split[2]
+    start = str(int(split[0])) + "-" + split[1]+ "-" + split[2]
     end = str(int(split[0])+1) + "-" + split[1]+ "-" + split[2]
 
     for market in markets: 

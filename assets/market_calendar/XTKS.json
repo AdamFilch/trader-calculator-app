@@ -220,6 +220,17 @@
             "is_business_day": false,
             "holiday_name": "Respect for the Aged Day (2003 onwards)",
             "is_early_close": false
+        },
+        {
+            "exchange": "Tokyo Stock Exchange",
+            "flag": "\ud83c\uddef\ud83c\uddf5",
+            "mic": "XTKS",
+            "date": "2025-10-13",
+            "day_of_week": "Monday",
+            "is_weekend": false,
+            "is_business_day": false,
+            "holiday_name": "Health and Sports Day (2022 onwards)",
+            "is_early_close": false
         }
     ]
 }

@@ -30,4 +30,5 @@ export interface MarketHoliday {
   is_business_day: Boolean;
   holiday_name?: string;
   is_early_close: Boolean;
+  detail?: any;
 }
