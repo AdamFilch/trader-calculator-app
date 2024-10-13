@@ -28,17 +28,19 @@ export function ClockDisplay() {
 
   // const nextSession = getNextSession();
   const nextHoliday = getNextMarketHolidays(diary.market, 2);
-  console.log("getNextMH", nextHoliday);
+  console.log("getNextMH", CT);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (timeIsAfter({ from: CT, to: market.close_time })) {
+        // Is current time after closing time?
         setUpcomming({
           ...upcomming,
           to: market.open_time,
           upc: "closed",
         });
       } else if (timeIsAfter({ from: CT, to: market.open_time })) {
+        // Is current time after open time?
         setUpcomming({
           ...upcomming,
           to: market.close_time,
@@ -52,6 +54,7 @@ export function ClockDisplay() {
   }, []);
 
   const hlt = getHowLongTill({ from: CT, to: market.open_time })?.split(":");
+  const addOne = parseInt(hlt[1]) > 30 ? 1 : 0;
 
   return (
     <View
@@ -71,8 +74,10 @@ export function ClockDisplay() {
         <Text color="$backgroundDarkError">{upcomming.upc}!</Text>
       </Text>
       <Text>
-        {parseInt(hlt[0]) > 0 ? `${hlt[0]} Hrs` : `${hlt[1]} Mins`} till next
-        Session
+        {parseInt(hlt[0]) > 0
+          ? `${parseInt(hlt[0]) + addOne} Hrs`
+          : `${hlt[1]} Mins`}{" "}
+        till next Session
       </Text>
     </View>
   );
