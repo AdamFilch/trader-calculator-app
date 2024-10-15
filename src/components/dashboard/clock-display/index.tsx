@@ -28,7 +28,6 @@ export function ClockDisplay() {
 
   // const nextSession = getNextSession();
   const nextHoliday = getNextMarketHolidays(diary.market, 2);
-  console.log("getNextMH", CT);
 
   useEffect(() => {
     const interval = setInterval(() => {

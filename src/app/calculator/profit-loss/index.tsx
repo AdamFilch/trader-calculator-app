@@ -3,6 +3,15 @@ import React from "react";
 import { ScrollView, TextInput, View } from "react-native";
 import { useProfitLossStore } from "../../../components/dashboard/calculator/profit-loss/context";
 import ProfitLoss from "@/src/components/dashboard/calculator/profit-loss";
+import {
+  Button,
+  ButtonText,
+  HStack,
+  Input,
+  InputField,
+  Text,
+  VStack,
+} from "@gluestack-ui/themed";
 
 export default function ProfitLossReturnCalculator() {
   const boughtFor = useProfitLossStore((s) => s.profitloss.bought_for);
@@ -15,33 +24,15 @@ export default function ProfitLossReturnCalculator() {
   }
 
   return (
-    <ScrollView>
-      <View style={{ marginHorizontal: 30 }}>
-        <ProfitLoss.Results />
-        <Typography>ProfitLossReturnCalculator</Typography>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            borderColor: "blue",
-            borderWidth: 1,
-            paddingHorizontal: 4,
-            paddingVertical: 10,
-            borderRadius: 4,
-          }}
-        >
-          <View>
-            <Typography>Buy For</Typography>
-            <View
-              style={{
-                borderColor: "blue",
-                borderWidth: 1,
-                paddingHorizontal: 4,
-                paddingVertical: 2,
-                borderRadius: 4,
-              }}
-            >
-              <TextInput
+    <View style={{ marginHorizontal: 30 }}>
+      <ProfitLoss.Results />
+      <Text>ProfitLossReturnCalculator</Text>
+      <VStack>
+        <HStack space="md">
+          <View style={{ flex: 1 }}>
+            <Text>Buy For</Text>
+            <Input>
+              <InputField
                 keyboardType="numeric"
                 value={boughtFor}
                 onChangeText={(text) => {
@@ -50,42 +41,13 @@ export default function ProfitLossReturnCalculator() {
                 }}
                 maxLength={10}
               />
-            </View>
+            </Input>
           </View>
-          <View>
-            <Typography>Sell For</Typography>
-            <View
-              style={{
-                borderColor: "blue",
-                borderWidth: 1,
-                paddingHorizontal: 4,
-                paddingVertical: 2,
-                borderRadius: 4,
-              }}
-            >
-              <TextInput
-                keyboardType="numeric"
-                value={soldFor}
-                onChangeText={(text) => {
-                  add_sf(text);
-                  validate();
-                }}
-                maxLength={10}
-              />
-            </View>
-          </View>
-          <View>
-            <Typography>Lot Size</Typography>
-            <View
-              style={{
-                borderColor: "blue",
-                borderWidth: 1,
-                paddingHorizontal: 4,
-                paddingVertical: 2,
-                borderRadius: 4,
-              }}
-            >
-              <TextInput
+
+          <View style={{ flex: 1 }}>
+            <Text>Lot Size</Text>
+            <Input>
+              <InputField
                 keyboardType="numeric"
                 value={lotSize}
                 onChangeText={(text) => {
@@ -94,10 +56,31 @@ export default function ProfitLossReturnCalculator() {
                 }}
                 maxLength={10}
               />
-            </View>
+            </Input>
           </View>
-        </View>
-      </View>
-    </ScrollView>
+        </HStack>
+        <HStack space="md">
+          <View style={{ flex: 1 }}>
+            <Text>Sell For</Text>
+            <Input>
+              <InputField
+                keyboardType="numeric"
+                value={soldFor}
+                onChangeText={(text) => {
+                  add_sf(text);
+                  validate();
+                }}
+                maxLength={10}
+              />
+            </Input>
+          </View>
+          <View style={{ flex: 1, alignSelf: "flex-end" }}>
+            <Button variant="outline">
+              <ButtonText>Save to Diary</ButtonText>
+            </Button>
+          </View>
+        </HStack>
+      </VStack>
+    </View>
   );
 }
