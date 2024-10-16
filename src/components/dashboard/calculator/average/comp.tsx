@@ -4,6 +4,14 @@ import { AverageArray } from "@/src/lib/interfaces/calculator";
 import { useState } from "react";
 import { useAverageStore } from "./context";
 import { useTranslation } from "react-i18next";
+import {
+  Button,
+  Heading,
+  HStack,
+  Input,
+  InputField,
+  TrashIcon,
+} from "@gluestack-ui/themed";
 
 interface InputProps {
   val: AverageArray;
@@ -13,6 +21,7 @@ export function InputArray({ val }: InputProps) {
   // const [stockPr, setStockPrice] = useState(val.stock_price || "");
   // const [lotSiz, setLotSize] = useState(val.stock_price || "");
   const { add_ls, add_sp, calculate } = useAverageStore();
+  const delete_array = useAverageStore((s) => s.delete_array);
   const t = useTranslation();
 
   function validate() {
@@ -20,18 +29,15 @@ export function InputArray({ val }: InputProps) {
   }
 
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        borderColor: "blue",
-        borderWidth: 1,
-      }}
-    >
-      <View>
+    <HStack space="md">
+      <Heading size="sm" style={{ alignSelf: "center", marginTop: 15 }}>
+        {val.id + 1}
+      </Heading>
+
+      <View style={{ flex: 1 }}>
         <Typography>Stock Price</Typography>
-        <View>
-          <TextInput
+        <Input>
+          <InputField
             keyboardType="numeric"
             value={val.stock_price}
             onChangeText={(text) => {
@@ -40,12 +46,12 @@ export function InputArray({ val }: InputProps) {
             }}
             maxLength={10}
           />
-        </View>
+        </Input>
       </View>
-      <View>
+      <View style={{ flex: 1 }}>
         <Typography>Lot Size</Typography>
-        <View>
-          <TextInput
+        <Input>
+          <InputField
             keyboardType="numeric"
             value={val.lot_size.toString()}
             onChangeText={(text) => {
@@ -54,8 +60,18 @@ export function InputArray({ val }: InputProps) {
             }}
             maxLength={10}
           />
-        </View>
+        </Input>
       </View>
-    </View>
+      <View style={{ justifyContent: "flex-end" }}>
+        <Button
+          variant="link"
+          onPress={() => {
+            // delete specific lot and stock
+          }}
+        >
+          <TrashIcon color="$error800" />
+        </Button>
+      </View>
+    </HStack>
   );
 }

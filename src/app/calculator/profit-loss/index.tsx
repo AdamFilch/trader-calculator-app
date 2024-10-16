@@ -15,6 +15,7 @@ import {
 } from "@gluestack-ui/themed";
 import { Icon } from "@/src/components/common/custom-ui";
 import { useToggle } from "@/src/components/common/useToggleView";
+import { DatePicker } from "@/src/components/common/date-picker";
 
 export default function ProfitLossReturnCalculator() {
   const boughtFor = useProfitLossStore((s) => s.profitloss.bought_for);
@@ -83,32 +84,10 @@ export default function ProfitLossReturnCalculator() {
           {isAdvanceOpen && (
             <HStack space="md">
               <View style={{ flex: 1 }}>
-                <Text>Bought at</Text>
-                <Input>
-                  <InputField
-                    keyboardType="numeric"
-                    value={soldFor}
-                    onChangeText={(text) => {
-                      add_sf(text);
-                      validate();
-                    }}
-                    maxLength={10}
-                  />
-                </Input>
+                <DatePicker header="Bought on" />
               </View>
               <View style={{ flex: 1 }}>
-                <Text>Sold at</Text>
-                <Input>
-                  <InputField
-                    keyboardType="numeric"
-                    value={soldFor}
-                    onChangeText={(text) => {
-                      add_sf(text);
-                      validate();
-                    }}
-                    maxLength={10}
-                  />
-                </Input>
+                <DatePicker header="Sold on" />
               </View>
             </HStack>
           )}
