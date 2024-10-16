@@ -6,81 +6,128 @@ import ProfitLoss from "@/src/components/dashboard/calculator/profit-loss";
 import {
   Button,
   ButtonText,
+  Card,
   HStack,
   Input,
   InputField,
   Text,
   VStack,
 } from "@gluestack-ui/themed";
+import { Icon } from "@/src/components/common/custom-ui";
+import { useToggle } from "@/src/components/common/useToggleView";
 
 export default function ProfitLossReturnCalculator() {
   const boughtFor = useProfitLossStore((s) => s.profitloss.bought_for);
   const soldFor = useProfitLossStore((s) => s.profitloss.sold_for);
   const lotSize = useProfitLossStore((s) => s.profitloss.lot_size);
   const { add_bf, add_ls, add_sf, calculate } = useProfitLossStore();
+  const [isAdvanceOpen, toggleIsAdvanceOpen] = useToggle();
 
   function validate() {
     calculate();
   }
 
   return (
-    <View style={{ marginHorizontal: 30 }}>
+    <View style={{ marginHorizontal: 15 }}>
       <ProfitLoss.Results />
-      <Text>ProfitLossReturnCalculator</Text>
-      <VStack>
-        <HStack space="md">
-          <View style={{ flex: 1 }}>
-            <Text>Buy For</Text>
-            <Input>
-              <InputField
-                keyboardType="numeric"
-                value={boughtFor}
-                onChangeText={(text) => {
-                  add_bf(text);
-                  validate();
-                }}
-                maxLength={10}
-              />
-            </Input>
-          </View>
+      <Card>
+        <VStack>
+          <HStack space="md">
+            <View style={{ flex: 1 }}>
+              <Text>Buy For</Text>
+              <Input>
+                <InputField
+                  keyboardType="numeric"
+                  value={boughtFor}
+                  onChangeText={(text) => {
+                    add_bf(text);
+                    validate();
+                  }}
+                  maxLength={10}
+                />
+              </Input>
+            </View>
 
-          <View style={{ flex: 1 }}>
-            <Text>Lot Size</Text>
-            <Input>
-              <InputField
-                keyboardType="numeric"
-                value={lotSize}
-                onChangeText={(text) => {
-                  add_ls(text);
-                  validate();
+            <View style={{ flex: 1 }}>
+              <Text>Lot Size</Text>
+              <Input>
+                <InputField
+                  keyboardType="numeric"
+                  value={lotSize}
+                  onChangeText={(text) => {
+                    add_ls(text);
+                    validate();
+                  }}
+                  maxLength={10}
+                />
+              </Input>
+            </View>
+          </HStack>
+          <HStack space="md">
+            <View style={{ flex: 0.5 }}>
+              <Text>Sell For</Text>
+              <Input>
+                <InputField
+                  keyboardType="numeric"
+                  value={soldFor}
+                  onChangeText={(text) => {
+                    add_sf(text);
+                    validate();
+                  }}
+                  maxLength={10}
+                />
+              </Input>
+            </View>
+            <View></View>
+          </HStack>
+          {isAdvanceOpen && (
+            <HStack space="md">
+              <View style={{ flex: 1 }}>
+                <Text>Bought at</Text>
+                <Input>
+                  <InputField
+                    keyboardType="numeric"
+                    value={soldFor}
+                    onChangeText={(text) => {
+                      add_sf(text);
+                      validate();
+                    }}
+                    maxLength={10}
+                  />
+                </Input>
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text>Sold at</Text>
+                <Input>
+                  <InputField
+                    keyboardType="numeric"
+                    value={soldFor}
+                    onChangeText={(text) => {
+                      add_sf(text);
+                      validate();
+                    }}
+                    maxLength={10}
+                  />
+                </Input>
+              </View>
+            </HStack>
+          )}
+          <HStack justifyContent="space-between" marginTop={10}>
+            <Button variant="link" onPress={toggleIsAdvanceOpen}>
+              <Icon
+                icon="chevron-right"
+                size="large"
+                style={{
+                  transform: isAdvanceOpen ? "rotate(-90deg)" : "rotate(90deg)",
                 }}
-                maxLength={10}
               />
-            </Input>
-          </View>
-        </HStack>
-        <HStack space="md">
-          <View style={{ flex: 1 }}>
-            <Text>Sell For</Text>
-            <Input>
-              <InputField
-                keyboardType="numeric"
-                value={soldFor}
-                onChangeText={(text) => {
-                  add_sf(text);
-                  validate();
-                }}
-                maxLength={10}
-              />
-            </Input>
-          </View>
-          <View style={{ flex: 1, alignSelf: "flex-end" }}>
-            <Button variant="outline">
-              <ButtonText>Save to Diary</ButtonText>
             </Button>
-          </View>
-        </HStack>
-      </VStack>
+            <Button variant="solid">
+              <ButtonText> Open Diary</ButtonText>
+            </Button>
+          </HStack>
+        </VStack>
+      </Card>
     </View>
   );
 }
