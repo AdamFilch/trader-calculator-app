@@ -1,16 +1,7 @@
-import { Typography } from "@/src/components/common/Typography";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import React, { useMemo } from "react";
-import { Pressable, View } from "react-native";
+import { View } from "react-native";
 import { useAverageStore } from "@/src/components/dashboard/calculator/average/context";
-import {
-  AddIcon,
-  Button,
-  Card,
-  HStack,
-  ScrollView,
-  TrashIcon,
-} from "@gluestack-ui/themed";
+import { Card, HStack, ScrollView } from "@gluestack-ui/themed";
 import Average from "@/src/components/dashboard/calculator/average";
 
 export default function AverageReturnCalculator() {

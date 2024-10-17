@@ -68,6 +68,7 @@ export function InputArray({ val }: InputProps) {
           onPress={() => {
             // delete specific lot and stock
             delete_array(val.id);
+            calculate();
           }}
         >
           <TrashIcon color="$error800" />
