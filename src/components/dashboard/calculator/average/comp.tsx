@@ -67,6 +67,7 @@ export function InputArray({ val }: InputProps) {
           variant="link"
           onPress={() => {
             // delete specific lot and stock
+            delete_array(val.id);
           }}
         >
           <TrashIcon color="$error800" />

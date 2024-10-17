@@ -11,6 +11,7 @@ interface AverageCalculatorState {
   add_ls: (index: number, val: string) => void;
   add_array: () => void;
   delete_array: (index: number) => void;
+  reorder: () => void;
 }
 
 export const useAverageStore = create<AverageCalculatorState>((set) => ({
@@ -82,10 +83,34 @@ export const useAverageStore = create<AverageCalculatorState>((set) => ({
   },
   delete_array: (index) => {
     set((state) => {
-      const newArrayState = state.averages_array.filter(
-        (arr) => arr.id != index - 1
-      );
-      return { ...state, averages_array: newArrayState };
+      if (state.averages_array.length > 5) {
+        const newArrayState = state.averages_array.filter(
+          (arr) => arr.id != index
+        );
+        state.reorder();
+        return { ...state, averages_array: newArrayState };
+      } else {
+        const newArrayState = state.averages_array.map((arr) => {
+          if (arr.id == index) {
+            return { ...arr, lot_size: "", stock_price: "" };
+          } else {
+            return arr;
+          }
+        });
+
+        return { ...state, averages_array: newArrayState };
+      }
+    });
+  },
+  reorder: () => {
+    set((state) => {
+      const averagesArray = state.averages_array;
+      const reordered = averagesArray.map((av, index) => {
+        return { ...av, id: index };
+      });
+      console.log("AverageContext reorderd", reordered);
+
+      return { ...state, averages_array: reordered };
     });
   },
 }));
