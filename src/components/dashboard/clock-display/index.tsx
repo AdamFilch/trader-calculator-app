@@ -6,7 +6,7 @@ import {
   getHowLongTill,
   timeIsAfter,
 } from "../../common/time-display";
-import { Heading, Text, VStack } from "@gluestack-ui/themed";
+import { Heading, HStack, Text, VStack } from "@gluestack-ui/themed";
 import {
   getNextMarketHolidays,
   useMarketData,
@@ -56,29 +56,31 @@ export function ClockDisplay() {
   const addOne = parseInt(hlt[1]) > 30 ? 1 : 0;
 
   return (
-    <View
+    <HStack
       style={{
-        height: 300,
-        flex: 2,
+        marginTop: 35,
+        marginHorizontal: 15,
         borderRadius: 10,
-        alignItems: "flex-start",
-        justifyContent: "flex-start",
+        justifyContent: "space-between",
+        alignItems: "center",
       }}
     >
-      <Heading size="4xl" marginBottom={-10}>
+      <Heading size="3xl">
         <CurrentTime twelve />
       </Heading>
-      <Text>
-        The market is now{" "}
-        <Text color="$backgroundDarkError">{upcomming.upc}!</Text>
-      </Text>
-      <Text>
-        {parseInt(hlt[0]) > 0
-          ? `${parseInt(hlt[0]) + addOne} Hrs`
-          : `${hlt[1]} Mins`}{" "}
-        till next Session
-      </Text>
-    </View>
+      <VStack>
+        <Text>
+          The market is now{" "}
+          <Text color="$backgroundDarkError">{upcomming.upc}!</Text>
+        </Text>
+        <Text>
+          {parseInt(hlt[0]) > 0
+            ? `${parseInt(hlt[0]) + addOne} Hrs`
+            : `${hlt[1]} Mins`}{" "}
+          till next Session
+        </Text>
+      </VStack>
+    </HStack>
   );
 }
 
