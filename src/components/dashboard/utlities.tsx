@@ -11,8 +11,10 @@ export function DashboardUtilities() {
       }}
     >
       <Text>Quick Access to trading app</Text>
-      <Text>Quick Access to trading app</Text>
-      <Text>Quick Access to trading app</Text>
+      <Text>Download diary csv/send to google</Text>
+      <Text>Next few holidays</Text>
+      <Text>Next few holidays</Text>
+      <Text>Next few holidays</Text>
     </Card>
   );
 }

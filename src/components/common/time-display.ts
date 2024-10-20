@@ -22,8 +22,9 @@ export function CurrentTime({ twelve }: { twelve?: boolean }) {
 export function getCurrentTime() {
   const hours = new Date().getHours();
   const mins = new Date().getMinutes();
+  const seconds = new Date().getSeconds();
 
-  const res = hours + ":" + (mins < 0 ? "0" : "") + mins;
+  const res = hours + ":" + mins + ":" + seconds;
 
   return res;
 }
@@ -32,23 +33,40 @@ export function getHowLongTill({
   from,
   to,
 }: {
-  from: string;
+  from: Date;
   to: string;
 }): string {
-  const froms = from.split(":");
-  const tos = to.split(":");
-  var startDate = new Date(0, 0, 0, parseInt(froms[0]), parseInt(froms[1]), 0);
-  var endDate = new Date(0, 0, 0, parseInt(tos[0]), parseInt(tos[1]), 0);
-  var diff = endDate.getTime() - startDate.getTime();
-  var hours = Math.floor(diff / 1000 / 60 / 60);
-  diff -= hours * 1000 * 60 * 60;
-  var minutes = Math.floor(diff / 1000 / 60);
+  const [hoursTo, minutesTo] = to.split(":").map(Number);
+  const currentHours = from.getHours();
+  const currentMinutes = from.getMinutes();
+  const currentSeconds = from.getSeconds();
 
-  // If using time pickers with 24 hours format, add the below line get exact hours
-  if (hours < 0) hours = hours + 24;
+  // Create a target time using the current day but with the `to` hours and minutes
+  let targetDate = new Date(from);
+  targetDate.setHours(hoursTo, minutesTo, 0, 0); // Set the target time to hours:minutes:00
 
+  // If the target time is before the current time, assume it's the next day
+  if (targetDate < from) {
+    targetDate.setDate(from.getDate() + 1);
+  }
+
+  // Calculate the difference in milliseconds
+  const diff = targetDate.getTime() - from.getTime();
+
+  // Convert the difference to hours, minutes, and seconds
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
   return (
-    (hours <= 9 ? "0" : "") + hours + ":" + (minutes <= 9 ? "0" : "") + minutes
+    (hours <= 9 ? "0" : "") +
+    hours +
+    ":" +
+    (minutes <= 9 ? "0" : "") +
+    minutes +
+    ":" +
+    (seconds <= 9 ? "0" : "") +
+    seconds
   );
 }
 

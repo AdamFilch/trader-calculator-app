@@ -20,6 +20,9 @@ export function ClockDisplay() {
   };
   const { market } = useMarketData(diary.market);
   const [CT, setCT] = useState(getCurrentTime());
+  const [timeLeft, setTimeLeft] = useState(
+    getHowLongTill({ from: new Date(), to: market.open_time })?.split(":")
+  );
   const [upcomming, setUpcomming] = useState({
     from: CT,
     to: market.open_time,
@@ -28,32 +31,18 @@ export function ClockDisplay() {
 
   // const nextSession = getNextSession();
   const nextHoliday = getNextMarketHolidays(diary.market, 2);
+  // const hlt = getHowLongTill({ from: CT, to: market.open_time })?.split(":");
+  console.log("testing CLock display", timeLeft);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (timeIsAfter({ from: CT, to: market.close_time })) {
-        // Is current time after closing time?
-        setUpcomming({
-          ...upcomming,
-          to: market.open_time,
-          upc: "closed",
-        });
-      } else if (timeIsAfter({ from: CT, to: market.open_time })) {
-        // Is current time after open time?
-        setUpcomming({
-          ...upcomming,
-          to: market.close_time,
-          upc: "open",
-        });
-      }
-      setCT(getCurrentTime());
-    }, 5000);
+      setTimeLeft(
+        getHowLongTill({ from: new Date(), to: market.open_time })?.split(":")
+      );
+    }, 1000);
 
     return () => clearInterval(interval); // Clean up the interval on component unmount
   }, []);
-
-  const hlt = getHowLongTill({ from: CT, to: market.open_time })?.split(":");
-  const addOne = parseInt(hlt[1]) > 30 ? 1 : 0;
 
   return (
     <HStack
@@ -65,20 +54,23 @@ export function ClockDisplay() {
         alignItems: "center",
       }}
     >
-      <Heading size="3xl">
-        <CurrentTime twelve />
-      </Heading>
       <VStack>
-        <Text>
+        <Heading size="3xl">
+          {timeLeft[0]}:{timeLeft[1]}:{timeLeft[2]}
+        </Heading>
+        <Text size="sm" marginTop={-10}>
           The market is now{" "}
           <Text color="$backgroundDarkError">{upcomming.upc}!</Text>
         </Text>
-        <Text>
-          {parseInt(hlt[0]) > 0
-            ? `${parseInt(hlt[0]) + addOne} Hrs`
-            : `${hlt[1]} Mins`}{" "}
+        <Text size="sm">
+          {parseInt(timeLeft[0]) > 0
+            ? `${parseInt(timeLeft[0])} Hrs`
+            : `${timeLeft[1]} Mins`}{" "}
           till next Session
         </Text>
+      </VStack>
+      <VStack>
+        <Heading>LOGO</Heading>
       </VStack>
     </HStack>
   );
