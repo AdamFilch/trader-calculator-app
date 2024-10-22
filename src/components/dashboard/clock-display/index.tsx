@@ -32,7 +32,6 @@ export function ClockDisplay() {
   // const nextSession = getNextSession();
   const nextHoliday = getNextMarketHolidays(diary.market, 2);
   // const hlt = getHowLongTill({ from: CT, to: market.open_time })?.split(":");
-  console.log("testing CLock display", timeLeft);
 
   useEffect(() => {
     const interval = setInterval(() => {
