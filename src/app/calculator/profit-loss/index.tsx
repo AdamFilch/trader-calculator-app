@@ -16,6 +16,7 @@ import {
 import { Icon } from "@/src/components/common/custom-ui";
 import { useToggle } from "@/src/components/common/useToggleView";
 import { DatePicker } from "@/src/components/common/date-picker";
+import { usePathname, useRouter } from "expo-router";
 
 export default function ProfitLossReturnCalculator() {
   const boughtFor = useProfitLossStore((s) => s.profitloss.bought_for);
@@ -23,6 +24,7 @@ export default function ProfitLossReturnCalculator() {
   const lotSize = useProfitLossStore((s) => s.profitloss.lot_size);
   const { add_bf, add_ls, add_sf, calculate } = useProfitLossStore();
   const [isAdvanceOpen, toggleIsAdvanceOpen] = useToggle();
+  const router = useRouter() 
 
   function validate() {
     calculate();
@@ -92,7 +94,7 @@ export default function ProfitLossReturnCalculator() {
             </HStack>
           )}
           <HStack justifyContent="space-between" marginTop={10}>
-            <Button variant="link" onPress={toggleIsAdvanceOpen}>
+            <Button variant="link" onPress={() => toggleIsAdvanceOpen()} >
               <Icon
                 icon="chevron-right"
                 size="large"
@@ -101,7 +103,9 @@ export default function ProfitLossReturnCalculator() {
                 }}
               />
             </Button>
-            <Button variant="solid">
+            <Button variant="solid" onPress={() => {
+              router.navigate('/(tabs)/settings')
+            }}>
               <ButtonText> Open Diary</ButtonText>
             </Button>
           </HStack>

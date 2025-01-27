@@ -25,7 +25,6 @@ export default function SettingsPage() {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   // const [selectedCurrency, setSelectedCurrency] = useState("rupiah");
 
-  console.log("selectedLang", i18n.language);
   const generalSegm = [
     {
       leadIcon: "contrast",

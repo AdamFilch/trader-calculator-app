@@ -47,6 +47,7 @@ export function ClockDisplay() {
     <HStack
       style={{
         marginTop: 35,
+        marginBottom: 10,
         marginHorizontal: 15,
         borderRadius: 10,
         justifyContent: "space-between",
@@ -62,10 +63,7 @@ export function ClockDisplay() {
           <Text color="$backgroundDarkError">{upcomming.upc}!</Text>
         </Text>
         <Text size="sm">
-          {parseInt(timeLeft[0]) > 0
-            ? `${parseInt(timeLeft[0])} Hrs`
-            : `${timeLeft[1]} Mins`}{" "}
-          till next Session
+          Market opens at 00 AM, Tomorrow
         </Text>
       </VStack>
       <VStack>
