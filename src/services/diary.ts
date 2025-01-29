@@ -4,14 +4,14 @@ import { RenameDiaryPayload } from "../lib/interfaces/diary"
 const db = useSQLiteContext()
 
 
-export async function NewDiary() {
+export async function newDiary() {
     const query = `INSERT INTO TRADING_REPORT_T ()`
     await db.runAsync(query)
 }
 
 
 
-export async function RenameDiary(payload: RenameDiaryPayload) {
+export async function renameDiary(payload: RenameDiaryPayload) {
     try {
         const query = await db.runAsync(`
             UPDATE 
@@ -26,5 +26,18 @@ export async function RenameDiary(payload: RenameDiaryPayload) {
             payload.report_id_pk)
     } catch (error) {
         console.log('Error Updating Diary: ', error)
+    }
+}
+
+
+export async function getAllDiary() {
+
+    const query = `SELECT * FROM TRADING_REPORT_T`
+
+    try {
+        const result = await db.runAsync(query)
+        return result
+    } catch (error) {
+        console.log('Error Updating ')
     }
 }

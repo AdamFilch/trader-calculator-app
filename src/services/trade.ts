@@ -7,15 +7,15 @@ import { CompleteTradePayload } from "../lib/interfaces/trade"
 const db = useSQLiteContext()
 
 
-export async function NewTrade() {
+export async function newTrade() {
     const query = `INSERT INTO TRADE_T () `
-    await db.runAsync(query)
+
 }
 
 
 
 
-export async function CompleteTrade(payload: CompleteTradePayload) {
+export async function completeTrade(payload: CompleteTradePayload) {
     const query = db.prepareAsync(`
         UPDATE TRADE_T 
         SET 

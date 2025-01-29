@@ -11,7 +11,7 @@ export type CompleteTradePayload = {
 
 
 export type NewTradePayload = {
-    trade_id_fk: string,
+    report_id_fk: string,
     trade_id_pk: string,
     trade_invested: number,
     trade_bought_for: number,
