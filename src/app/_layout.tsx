@@ -11,7 +11,7 @@ import { Inter_600SemiBold } from "@expo-google-fonts/inter";
 import { SQLiteProvider } from "expo-sqlite";
 import { dbName, initDatabase } from "@/backend/scripts/sqlite";
 import { GluestackUIProvider } from "@gluestack-ui/themed";
-import { config } from "@gluestack-ui/config";
+import config from "@/gluestack-ui.config.json";
 import { DiaryContextProvider } from "../constants/DiaryContext";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -33,13 +33,13 @@ export default function RootLayout() {
   }
 
   return (
-    <SQLiteProvider
-      databaseName={dbName}
-      assetSource={{ assetId: require("../../assets/trader_diary_db.db") }}
-      onInit={initDatabase}
-    >
-      <TraderThemeProvider>
-        <DiaryContextProvider>
+    // <SQLiteProvider
+    //   databaseName={dbName}
+    //   assetSource={{ assetId: require("../../assets/trader_diary_db.db") }}
+    //   onInit={initDatabase}
+    // >
+    //   <TraderThemeProvider>
+    //     <DiaryContextProvider>
           <GluestackUIProvider config={config}>
             <Stack
               screenOptions={
@@ -52,8 +52,8 @@ export default function RootLayout() {
               <Stack.Screen name="+not-found" />
             </Stack>
           </GluestackUIProvider>
-        </DiaryContextProvider>
-      </TraderThemeProvider>
-    </SQLiteProvider>
+    //     </DiaryContextProvider>
+    //   </TraderThemeProvider>
+    // </SQLiteProvider>
   );
 }
