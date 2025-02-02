@@ -5,7 +5,7 @@ import DashboardDiarySummary from "@/src/components/dashboard/diary/summary";
 import { Box, SafeAreaView, VStack } from "@gluestack-ui/themed";
 import { DashboardUtilities } from "@/src/components/dashboard/utlities";
 
-export default function DashboardPage({}) {
+export default function DashboardPage() {
   return (
     <Box flex={1}>
       <ClockDisplay />

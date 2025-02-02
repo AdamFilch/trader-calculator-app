@@ -1,4 +1,3 @@
-import { DarkTheme, DefaultTheme, Theme } from "@react-navigation/native";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { Appearance, useColorScheme } from "react-native";
 
@@ -8,10 +7,10 @@ const WEB_FONT_STACK =
 const manropeRegular = "../assets/fonts/Manrope-Regular.ttf";
 
 export const traderThemeLight: any = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-  },
+  // ...DefaultTheme,
+  // colors: {
+  //   ...DefaultTheme.colors,
+  // },
   // web: {
   //   regular: {
   //     fontFamily: WEB_FONT_STACK,
@@ -69,10 +68,10 @@ export const traderThemeLight: any = {
 };
 
 export const traderThemeDark: any = {
-  ...DarkTheme,
-  colors: {
-    ...DarkTheme.colors,
-  },
+  // ...DarkTheme,
+  // colors: {
+  //   ...DarkTheme.colors,
+  // },
 };
 
 const TraderThemeContext = createContext(traderThemeLight);

@@ -167,7 +167,7 @@ export default function SettingsPage() {
         <Text>Diary Description?</Text>
       </Card>
       <View style={{ marginTop: 20 }}>
-        <Heading size="sm">{t("General")}</Heading>
+        <Heading >{t("General")}</Heading>
 
         <View
           style={{
@@ -177,7 +177,7 @@ export default function SettingsPage() {
             padding: 10,
           }}
         >
-          <FlatList
+          {/* <FlatList
             data={generalSegm}
             scrollEnabled={false}
             renderItem={({ item }) => (
@@ -185,12 +185,12 @@ export default function SettingsPage() {
                 {item.trail}
               </SegmentWithTrail>
             )}
-          />
+          /> */}
         </View>
       </View>
 
       <View>
-        <Heading size="sm">{t("About App")}</Heading>
+        <Heading>{t("About App")}</Heading>
 
         <View
           style={{
@@ -214,7 +214,7 @@ export default function SettingsPage() {
         </View>
       </View>
       <View>
-        <Heading size="sm">{t("More")}</Heading>
+        <Heading>{t("More")}</Heading>
 
         <View
           style={{
@@ -291,3 +291,4 @@ function SegmentAsPressable({
     </Pressable>
   );
 }
+

@@ -10,9 +10,10 @@ import { TraderThemeProvider } from "../constants/TraderThemeContext";
 import { Inter_600SemiBold } from "@expo-google-fonts/inter";
 import { SQLiteProvider } from "expo-sqlite";
 import { dbName, initDatabase } from "@/backend/scripts/sqlite";
-import { GluestackUIProvider } from "@gluestack-ui/themed";
-import config from "@/gluestack-ui.config.json";
+import { Box, StyledProvider } from "@gluestack-ui/themed";
+import { config } from "@/components/ui/gluestack-ui-provider/config"
 import { DiaryContextProvider } from "../constants/DiaryContext";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -38,9 +39,10 @@ export default function RootLayout() {
     //   assetSource={{ assetId: require("../../assets/trader_diary_db.db") }}
     //   onInit={initDatabase}
     // >
-    //   <TraderThemeProvider>
-    //     <DiaryContextProvider>
-          <GluestackUIProvider config={config}>
+    <TraderThemeProvider>
+      <DiaryContextProvider>
+        <StyledProvider config={config}>
+          <GluestackUIProvider>
             <Stack
               screenOptions={
                 {
@@ -51,9 +53,10 @@ export default function RootLayout() {
               <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
               <Stack.Screen name="+not-found" />
             </Stack>
-          </GluestackUIProvider>
-    //     </DiaryContextProvider>
-    //   </TraderThemeProvider>
-    // </SQLiteProvider>
+           </GluestackUIProvider>
+        </StyledProvider>
+      </DiaryContextProvider>
+    </TraderThemeProvider>
+    // </SQLiteProvider> 
   );
 }

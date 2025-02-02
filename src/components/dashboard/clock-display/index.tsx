@@ -55,14 +55,14 @@ export function ClockDisplay() {
       }}
     >
       <VStack>
-        <Heading size="3xl">
+        <Heading>
           {timeLeft[0]}:{timeLeft[1]}:{timeLeft[2]}
         </Heading>
-        <Text size="sm" marginTop={-10}>
+        <Text marginTop={-10}>
           The market is now{" "}
-          <Text color="$backgroundDarkError">{upcomming.upc}!</Text>
+          <Text>{upcomming.upc}!</Text>
         </Text>
-        <Text size="sm">
+        <Text >
           Market opens at 00 AM, Tomorrow
         </Text>
       </VStack>
