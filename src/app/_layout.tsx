@@ -34,11 +34,11 @@ export default function RootLayout() {
   }
 
   return (
-    // <SQLiteProvider
-    //   databaseName={dbName}
-    //   assetSource={{ assetId: require("../../assets/trader_diary_db.db") }}
-    //   onInit={initDatabase}
-    // >
+    <SQLiteProvider
+      databaseName={dbName}
+      assetSource={{ assetId: require("../../assets/trader_diary_db.db") }}
+      onInit={initDatabase}
+    >
     <TraderThemeProvider>
       <DiaryContextProvider>
         <StyledProvider config={config}>
@@ -46,7 +46,7 @@ export default function RootLayout() {
             <Stack
               screenOptions={
                 {
-                  // headerShown: false,
+                  headerShown: false,
                 }
               }
             >
@@ -57,6 +57,6 @@ export default function RootLayout() {
         </StyledProvider>
       </DiaryContextProvider>
     </TraderThemeProvider>
-    // </SQLiteProvider> 
+    </SQLiteProvider> 
   );
 }
