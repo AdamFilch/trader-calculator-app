@@ -19,7 +19,7 @@ export default function AverageReturnCalculator() {
     <ScrollView marginHorizontal={15}>
       <Average.Results />
       <Card>
-        {inputArrays}
+        {/* {inputArrays} */}
         <HStack>
           <View style={{ flex: 1 }}>
             {/* <Button
